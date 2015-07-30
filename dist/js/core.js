@@ -6,11 +6,11 @@
 requirejs.config({
     paths: {
         jquery: '../node_modules/jquery/dist/jquery',
-        underscore: '../node_modules/underscore/underscore',
-        backbone: '../node_modules/backbone/backbone',
-        handlebars: '../node_modules/handlebars/dist/handlebars.amd',
-        firebase: '../node_modules/firebase/lib/firebase-node',
-        backbonefire: '../node_modules/backbonefire/dist/backbonefire'
+        underscore: '../bower_components/underscore/underscore',
+        backbone: '../bower_components/backbone/backbone',
+        firebase: '../bower_components/firebase/firebase',
+        backbonefire: '../bower_components/backbonefire/dist/backbonefire',
+        handlebars: '../node_modules/handlebars/dist/handlebars.amd'
     },
     shim: {
         'backbone': {

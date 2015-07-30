@@ -38,13 +38,9 @@
     "grunt-sass": "^1.0.0"
   },
   "dependencies": {
-    "backbone": "^1.2.1",
-    "backbonefire": "^0.0.0",
-    "firebase": "^2.2.8",
     "handlebars": "^3.0.3",
     "jquery": "^2.1.4",
     "material-design-lite": "^1.0.2",
-    "requirejs": "^2.1.20",
-    "underscore": "^1.8.3"
+    "requirejs": "^2.1.20"
   }
 }
