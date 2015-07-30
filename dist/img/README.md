@@ -1,1 +1,0 @@
-# FinControl project images

@@ -5,12 +5,13 @@
 
 requirejs.config({
     paths: {
-        jquery: '../node_modules/jquery/dist/jquery',
-        underscore: '../bower_components/underscore/underscore',
-        backbone: '../bower_components/backbone/backbone',
-        firebase: '../bower_components/firebase/firebase',
-        backbonefire: '../bower_components/backbonefire/dist/backbonefire',
-        handlebars: '../node_modules/handlebars/dist/handlebars.amd'
+        jquery: '../../node_modules/jquery/dist/jquery',
+        underscore: '../../node_modules/underscore/underscore',
+        backbone: '../../node_modules/backbone/backbone',
+        firebase: '../../node_modules/firebase/lib/firebase-node',
+        backbonefire: '../../bower_components/backbonefire/dist/backbonefire',
+        handlebars: '../../node_modules/handlebars/dist/handlebars.amd',
+        material: '../../node_modules/material-design-lite/material'
     },
     shim: {
         'backbone': {
@@ -27,7 +28,8 @@ requirejs.config({
 });
 
 requirejs([
-    'routers/router'
-], function (Router) {
+    'routes/router',
+    'material'
+], function (Router, Material) {
     new Router();
 });
