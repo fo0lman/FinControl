@@ -9,4 +9,5 @@ Test Frontent Project by FE-14-1 LevelUp
 * npm install
 * npm install -g bower
 * bower install backbonefire --save
+
 4. Clone Git repository from development branch
