@@ -1,0 +1,49 @@
+{
+  "name": "fincontrol",
+  "version": "0.0.1",
+  "description": "Test Frontend WebApp by FE-14-1 LevelUp",
+  "main": "core.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fo0lman/FinControl.git"
+  },
+  "keywords": [
+    "finanse",
+    "personal",
+    "money",
+    "frontend",
+    "LevelUp",
+    "javascript",
+    "backbone"
+  ],
+  "author": "FE-14-1 LevelUp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fo0lman/FinControl/issues"
+  },
+  "homepage": "https://github.com/fo0lman/FinControl#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-csslint": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.13.0",
+    "grunt-contrib-handlebars": "^0.10.2",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^2.0.0",
+    "grunt-sass": "^1.0.0"
+  },
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "firebase": "^2.2.8",
+    "handlebars": "^3.0.3",
+    "jquery": "^2.1.4",
+    "material-design-lite": "^1.0.2",
+    "requirejs": "^2.1.20",
+    "underscore": "^1.8.3"
+  }
+}
