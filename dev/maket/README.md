@@ -1,2 +1,0 @@
-# FinControl
-Development makets directory

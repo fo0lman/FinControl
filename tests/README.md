@@ -1,2 +1,0 @@
-# FinControl 
-Tests directory
