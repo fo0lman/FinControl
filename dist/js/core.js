@@ -11,7 +11,7 @@ requirejs.config({
         firebase: '../../node_modules/firebase/lib/firebase-node',
         backbonefire: '../../bower_components/backbonefire/dist/backbonefire',
         handlebars: '../../node_modules/handlebars/dist/handlebars.amd',
-        material: '../../node_modules/material-design-lite/material'
+        bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min'
     },
     shim: {
         'backbone': {
@@ -23,13 +23,16 @@ requirejs.config({
         },
         'backbonefire': {
             deps: ['backbone', 'firebase', 'underscore']
+        },
+        'bootstrap': {
+            deps: ['jquery']
         }
     }
 });
 
 requirejs([
     'routes/router',
-    'material'
-], function (Router, Material) {
+    'bootstrap'
+], function (Router, bootstrap) {
     new Router();
 });

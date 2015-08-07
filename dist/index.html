@@ -4,71 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinControl</title>
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-pink.min.css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link rel="stylesheet" href="../node_modules/material-design-lite/material.css"/>
-    <link rel="stylesheet" href="css/style.css"/> 
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i></i>FinControl</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav top-menu hidden">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">GitHUB</a></li>
+                </ul>
+                <ul class="nav navbar-nav user-top-menu pull-right">
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-	<header class="mdl-layout__header">
-		<div class="mdl-layout__header-row">
-			<span class="mdl-layout-title"></span>
-            <img class="mdl-logo" src="img/levelup.png" alt="">
-            <h4>FinControl</h4>
-            <nav class="mdl-navigation">
-				<a href="#" class="mdl-navigation__link">Link1</a>
-				<a href="#" class="mdl-navigation__link">Link2</a>
-				<a href="#" class="mdl-navigation__link">Link3</a>
-			</nav>
-			<div class="mdl-layout-spaser"></div>
-				<a href="login-form.html" class="mdl-navigation__link">Sign Up</a>
-				<a href="#" class="mdl-navigation__link">Login</a>
-		</div>	 
-	</header>
-</div>
-<div class="mdl-layout__content">
-	<main>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--4-col"></div>
-			<div class="mdl-cell mdl-cell--4-col">
-				<h1>A Big Title</h1>
-			</div>
-			<div class="mdl-cell mdl-cell--4-col"></div>
-		</div>
-		<div class="mdl-grid">
-			<div class="mdl-cell mdl-cell--3-col"></div>
-			<div class="mdl-cell mdl-cell--2-col">
-				<img class="" src="img/icons.png" alt="">
-				<h5>A <strong>paragraf</strong> of text with an <a href="#">unassigned link.</a> A <em>second</em> row of text with a <a href="#">web link</a></h5> 
-				<h5>A <strong>paragraf</strong> of text with an <a href="#">unassigned link.</a> A <em>second</em> row of text with a <a href="#">web link</a></h5> 
-			</div>
-			<div class="mdl-cell mdl-cell--2-col">
-				<img class="" src="img/icons.png" alt="">
-				<h5>A <strong>paragraf</strong> of text with an <a href="#">unassigned link.</a> A <em>second</em> row of text with a <a href="#">web link</a></h5>  
-				<h5>A <strong>paragraf</strong> of text with an <a href="#">unassigned link.</a> A <em>second</em> row of text with a <a href="#">web link</a></h5> 
-			</div>
-			<div class="mdl-cell mdl-cell--2-col">
-				<img class="" src="img/icons.png" alt="">
-				<h5>A <strong>paragraf</strong> of text with an <a href="#">unassigned link.</a> A <em>second</em> row of text with a <a href="#">web link</a></h5> 
-				<h5>A <strong>paragraf</strong> of text with an <a href="#">unassigned link.</a> A <em>second</em> row of text with a <a href="#">web link</a></h5>  
-			</div>
-			<div class="mdl-cell mdl-cell--3-col"></div>
-		</div>
-	</main>
-   <footer class="demo-footer mdl-mini-footer">
-      <div class="mdl-mini-footer--left-section">
-        <ul class="mdl-mini-footer--link-list">
-          <li><a href="#">About</a></li>
-          <li><a href="#">Help</a></li>
-          <li><a href="#">GitHub</a></li>
-        </ul>
-      </div>
-      <div class="mdl-mini-footer--right-section">
-      	<span>Copyright</span>
-      </div>
-    </footer>
+<main class="container">
+    <div class="row home-page-content">
+        <div class="col-md-4 text-center">
+            <img src="http://placehold.it/250x250" alt="img">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Atque impedit ipsam libero nobis rem tempore? Debitis deserunt
+                dicta eius nam officiis quaerat quod sapiente. Debitis
+                deleniti eius fugiat id inventore nam necessitatibus, nisi
+                omnis provident quas quasi quidem rerum sunt temporibus voluptate!
+                Aspernatur eos molestias quasi sunt? Doloribus earum eius eum molestiae
+                odio quasi, quibusdam repellat repudiandae velit veritatis. Adipisci
+                asperiores deleniti distinctio eligendi iste iure laudantium nihil odit,
+                quaerat reprehenderit sequi vel, voluptas. Animi dicta dignissimos dolorem fugiat,
+                fugit, ipsum magni minus non omnis perspiciatis praesentium
+                recusandae reprehenderit unde? Ab consequatur consequuntur,
+                ducimus error et expedita libero molestias mollitia, obcaecati
+                recusandae veniam vero! Accusantium ad aliquam aspernatur assumenda
+                aut autem consequuntur corporis, cum delectus, deserunt distinctio dolorem
+                dolores ducimus eligendi excepturi facere facilis harum id itaque iusto nam
+                nisi nulla, odio omnis quasi qui quis quisquam sequi vero voluptatum? Accusamus
+                distinctio magnam rem sint voluptas? Maiores nisi provident rerum. Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis
+                rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis
+                rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente</p>
+
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="http://placehold.it/250x250" alt="img">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Atque impedit ipsam libero nobis rem tempore? Debitis deserunt
+                dicta eius nam officiis quaerat quod sapiente. Debitis
+                deleniti eius fugiat id inventore nam necessitatibus, nisi
+                omnis provident quas quasi quidem rerum sunt temporibus voluptate!
+                Aspernatur eos molestias quasi sunt? Doloribus earum eius eum molestiae
+                odio quasi, quibusdam repellat repudiandae velit veritatis. Adipisci
+                asperiores deleniti distinctio eligendi iste iure laudantium nihil odit,
+                quaerat reprehenderit sequi vel, voluptas. Animi dicta dignissimos dolorem fugiat,
+                fugit, ipsum magni minus non omnis perspiciatis praesentium
+                recusandae reprehenderit unde? Ab consequatur consequuntur,
+                ducimus error et expedita libero molestias mollitia, obcaecati
+                recusandae veniam vero! Accusantium ad aliquam aspernatur assumenda
+                aut autem consequuntur corporis, cum delectus, deserunt distinctio dolorem
+                dolores ducimus eligendi excepturi facere facilis harum id itaque iusto nam
+                nisi nulla, odio omnis quasi qui quis quisquam sequi vero voluptatum? Accusamus
+                distinctio magnam rem sint voluptas? Maiores nisi provident rerum. Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis
+                rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis
+                rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente</p>
+
+        </div>
+        <div class="col-md-4 text-center">
+            <img src="http://placehold.it/250x250" alt="img">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Atque impedit ipsam libero nobis rem tempore? Debitis deserunt
+                dicta eius nam officiis quaerat quod sapiente. Debitis
+                deleniti eius fugiat id inventore nam necessitatibus, nisi
+                omnis provident quas quasi quidem rerum sunt temporibus voluptate!
+                Aspernatur eos molestias quasi sunt? Doloribus earum eius eum molestiae
+                odio quasi, quibusdam repellat repudiandae velit veritatis. Adipisci
+                asperiores deleniti distinctio eligendi iste iure laudantium nihil odit,
+                quaerat reprehenderit sequi vel, voluptas. Animi dicta dignissimos dolorem fugiat,
+                fugit, ipsum magni minus non omnis perspiciatis praesentium
+                recusandae reprehenderit unde? Ab consequatur consequuntur,
+                ducimus error et expedita libero molestias mollitia, obcaecati
+                recusandae veniam vero! Accusantium ad aliquam aspernatur assumenda
+                aut autem consequuntur corporis, cum delectus, deserunt distinctio dolorem
+                dolores ducimus eligendi excepturi facere facilis harum id itaque iusto nam
+                nisi nulla, odio omnis quasi qui quis quisquam sequi vero voluptatum? Accusamus
+                distinctio magnam rem sint voluptas? Maiores nisi provident rerum. Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis
+                rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente. Lorem ipsum dolor
+                sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis
+                rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente </p>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="list-inline">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">GitHUB</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <p>&copy; Copyright 2015</p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Please login</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Remember me
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary pull-right">Sign in</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <p>Social buttons:</p>
+                    </div>
+                    <div class="col-sm-10">
+                        <ul class="list-inline social-login">
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script data-main="js/core.js" src="../node_modules/requirejs/require.js"></script>
