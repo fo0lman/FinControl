@@ -1,6 +1,3 @@
-/**
- * Created by foolman on 30.07.2015.
- */
 "use strict";
 
 requirejs.config({
@@ -34,5 +31,5 @@ requirejs([
     'routes/router',
     'bootstrap'
 ], function (Router, bootstrap) {
-    new Router();
+    Backbone.history.start();
 });
