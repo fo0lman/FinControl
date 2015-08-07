@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinControl</title>
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.indigo-pink.min.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+    <link rel="stylesheet" href="../node_modules/material-design-lite/material.css"/>
+    <link rel="stylesheet" href="css/style.css"/> 
+</head>
+<body>
+	<form action="/echo" method="POST">
+		<div class="mdl-grid">
+			<div class="mdl-cell mdl-cell--8-col">
+				<label class="mdl-textfield_label" for="user">User:</label>
+				<input class="mdl-textfield_input" type="text" id="user"/>
+				<input type="hidden" id="messagebox_user">
+		    </div>
+		    <div class="mdl-cell mdl-cell--8-col">
+		        <label class="" for="password">Password:</label>
+		        <input type="text" id="password"/>
+		        <input type="hidden" id="messagebox_password">
+		    </div>
+		    <div class="mdl-cell mdl-cell--12-col">
+		    	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+				  	<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked />
+				  	<span class="mdl-checkbox__label">remember Me</span>
+				  	<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+						Login
+					</button>
+				</label>
+		    </div>
+			<div class="mdl-cell mdl-cell--12-col">
+		   		<a href="#">forgot password</a>
+		   		<a href="#">register</a>
+		    </div>
+		    <div class="mdl-cell mdl-cell--6-col">
+		    	<h4>social icons</h4>
+				<img class="" src="img/social_icons.png" alt="">
+		    </div>
+		</div>
+	</form>          
+</body>
+</html>
