@@ -23,3 +23,7 @@ footer {
 #modal-login .modal-footer {
     text-align: left;
 }
+
+.form-message-box {
+    display: none;
+}
