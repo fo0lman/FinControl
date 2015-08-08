@@ -1,6 +1,3 @@
-/**
- * Created by foolman on 30.07.2015.
- */
 define([
     'backbone'
 ], function (Backbone) {
@@ -8,7 +5,41 @@ define([
 
     var Router;
     Router = Backbone.Router.extend({
-        routes: {}
+        routes: {
+            '':'mainpage',
+            'home(/)': 'homePage',
+            'login(/)': 'showLoginState',
+            'registration(/)': 'registartionPage',
+            'forgotpass(/)': 'forgotPasswordPage',
+            'dashboard(/)': 'dashboardPage',
+
+            '*anything(/)': 'notFoundPage'
+        },
+        mainpage: function () {
+            this.navigate('home', {
+                trigger: true,
+                replace: true
+            });
+        },
+        homePage: function () {
+            console.log('homePage');
+        },
+        showLoginState: function () {
+            console.log('showLoginState');
+        },
+        registartionPage: function () {
+            console.log('registartionPage');
+        },
+        forgotPasswordPage: function () {
+            console.log('forgotPasswordPage');
+        },
+        dashboardPage: function () {
+            console.log('dashboardPage');
+        },
+        notFoundPage: function () {
+            console.log('notFoundPage');
+        }
     });
-    return Router;
+
+    window.router = new Router();
 });
