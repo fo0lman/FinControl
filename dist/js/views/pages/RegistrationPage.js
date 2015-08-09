@@ -7,7 +7,7 @@ define([
 
     var RegistrationPageView;
     RegistrationPageView = AbstractPage.extend({
-        title: 'Wellcome to Registration Page',
+        title: 'Registration',
         initialize: function() {
             this.template = Handlebars.compile(JST.RegistrationPage({title: this.title}));
         }

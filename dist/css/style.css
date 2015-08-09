@@ -21,15 +21,23 @@ footer {
   min-height: 800px;
 }
 
-.social-login {
-  font-size: 32px;
-  color: #31619e;
-}
-
 #modal-login .modal-footer {
   text-align: left;
 }
 
 .form-message-box {
   display: none;
+}
+
+.login-links {
+  margin-top: 20px;
+}
+
+.social-login {
+  margin-top: 20px;
+}
+
+.social-login a {
+  font-size: 32px;
+  color: #31619e;
 }

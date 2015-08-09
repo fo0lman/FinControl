@@ -6,7 +6,7 @@ define([
 
     var RegistrationPage;
     RegistrationPage = AbstractPage.extend({
-        title: 'Registration Page',
+        title: 'Registration',
         initialize: function (options) {
             AbstractPage.prototype.initialize.call(this, arguments);
             var registrationPageView = new RegistrationPageView({

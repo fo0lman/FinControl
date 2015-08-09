@@ -1,8 +1,12 @@
 define([
     'backbone',
     'pages/HomePage',
-    'pages/NotFoundPage'
-], function (Backbone, HomePage, NotFoundPage) {
+    'pages/NotFoundPage',
+    'pages/LoginPage',
+    'pages/RegistrationPage',
+    'pages/ForgotPasswordPage',
+    'pages/DashboardPage'
+], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage) {
     "use strict";
 
     var Router;
@@ -10,7 +14,7 @@ define([
         routes: {
             '':'mainpage',
             'home(/)': 'homePage',
-            'login(/)': 'showLoginState',
+            'login(/)': 'loginPage',
             'registration(/)': 'registartionPage',
             'forgotpass(/)': 'forgotPasswordPage',
             'dashboard(/)': 'dashboardPage',
@@ -26,8 +30,8 @@ define([
         homePage: function () {
             this.createPage('HomePage');
         },
-        showLoginState: function () {
-            console.log('showLoginState');
+        loginPage: function () {
+            this.createPage('LoginPage');
         },
         registartionPage: function () {
             this.createPage('RegistrationPage');
@@ -36,7 +40,7 @@ define([
             this.createPage('ForgotPasswordPage');
         },
         dashboardPage: function () {
-            console.log('dashboardPage');
+            this.createPage('DashboardPage');
         },
         notFoundPage: function () {
             this.createPage('NotFoundPage');
@@ -52,8 +56,16 @@ define([
                 PageClass = ForgotPasswordPage;
             }
 
+            if (type === 'LoginPage') {
+                PageClass = LoginPage;
+            }
+
             if (type === 'RegistrationPage') {
                 PageClass = RegistrationPage;
+            }
+
+            if (type === 'DashboardPage') {
+                PageClass = DashboardPage;
             }
 
             if (type === 'NotFoundPage') {

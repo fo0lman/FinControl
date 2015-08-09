@@ -7,7 +7,7 @@ define([
 
     var PasswordPageView;
     PasswordPageView = AbstractPage.extend({
-        title: 'Wellcome to Registration Page',
+        title: 'Reset Password',
         initialize: function() {
             this.template = Handlebars.compile(JST.ForgotPasswordPage({title: this.title}));
         }

@@ -4,18 +4,17 @@ define([
 ], function (AbstractPage, PasswordPageView) {
     "use strict";
 
-    var PasswordPage;
-    var PasswordPage;
-    PasswordPage = AbstractPage.extend({
+    var ForgotPasswordPage;
+    ForgotPasswordPage = AbstractPage.extend({
         title: 'Forgot Password Page',
         initialize: function (options) {
             AbstractPage.prototype.initialize.call(this, arguments);
-            var passwordPageView = new PasswordPageView({
+            var forgotPasswordPage = new PasswordPageView({
                 title: this.title
             });
-            this.components.push(passwordPageView);
+            this.components.push(forgotPasswordPage);
         }
     });
 
-    return PasswordPage;
+    return ForgotPasswordPage;
 });
