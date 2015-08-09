@@ -3,10 +3,10 @@ define([
 ], function (AbstractPage) {
     "use strict";
 
-    var Registration;
-    Registration = AbstractPage.extend({
+    var RegistartionPage;
+    RegistartionPage = AbstractPage.extend({
         title: 'Registration'
     });
 
-    return Registration;
+    return RegistartionPage;
 });
