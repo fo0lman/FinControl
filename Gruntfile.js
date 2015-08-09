@@ -31,6 +31,15 @@ module.exports = function (grunt) {
                     'dist/js/templates/jst.js': 'dist/js/templates/*.hbs'
                 }
             }
+        },
+        jscs: {
+            src: "dist/js/templates/jst.js",
+            options: {
+                config: ".jscsrc",
+                esnext: true, 
+                verbose: true, 
+                requireCurlyBraces: [ "if" ]
+            }
         }
     });
 
