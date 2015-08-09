@@ -1,6 +1,7 @@
 define([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'modules/authorization'
+], function (Backbone, UserModule) {
     "use strict";
 
     var Router;

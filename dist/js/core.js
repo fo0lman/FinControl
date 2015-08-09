@@ -5,7 +5,7 @@ requirejs.config({
         jquery: '../../node_modules/jquery/dist/jquery',
         underscore: '../../node_modules/underscore/underscore',
         backbone: '../../node_modules/backbone/backbone',
-        firebase: '../../node_modules/firebase/lib/firebase-node',
+        firebase: '../../bower_components/firebase/firebase',
         backbonefire: '../../bower_components/backbonefire/dist/backbonefire',
         handlebars: '../../node_modules/handlebars/dist/handlebars.amd',
         bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min'
