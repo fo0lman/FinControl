@@ -1,12 +1,20 @@
 define([
-    'pages/AbstractPage'
-], function (AbstractPage) {
+    'pages/AbstractPage',
+    'views/pages/RegistrationPage'
+], function (AbstractPage, RegistrationPageView) {
     "use strict";
 
-    var RegistartionPage;
-    RegistartionPage = AbstractPage.extend({
-        title: 'Registration'
+    var RegistrationPage;
+    RegistrationPage = AbstractPage.extend({
+        title: 'Registration Page',
+        initialize: function (options) {
+            AbstractPage.prototype.initialize.call(this, arguments);
+            var registrationPageView = new RegistrationPageView({
+                title: this.title
+            });
+            this.components.push(registrationPageView);
+        }
     });
 
-    return RegistartionPage;
+    return RegistrationPage;
 });
