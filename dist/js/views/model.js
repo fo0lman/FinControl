@@ -5,7 +5,7 @@ define([
     'backbone',
     'handlebars',
 
-    'templates/templates'
+    'templates'
 
 ], function (Backbone, Handlebars, JST) {
     "use strict";

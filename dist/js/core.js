@@ -8,7 +8,8 @@ requirejs.config({
         firebase: '../../bower_components/firebase/firebase',
         backbonefire: '../../bower_components/backbonefire/dist/backbonefire',
         handlebars: '../../node_modules/handlebars/dist/handlebars.amd',
-        bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min'
+        bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min',
+        templates: 'templates/jst'
     },
     shim: {
         'backbone': {
@@ -23,6 +24,10 @@ requirejs.config({
         },
         'bootstrap': {
             deps: ['jquery']
+        },
+        'handlebars': {
+
+            exports: 'Handlebars'
         }
     }
 });

@@ -1,7 +1,8 @@
 define([
     'backbone',
-    'modules/authorization'
-], function (Backbone, UserModule) {
+    'pages/HomePage',
+    'pages/NotFoundPage'
+], function (Backbone, HomePage, NotFoundPage) {
     "use strict";
 
     var Router;
@@ -23,7 +24,7 @@ define([
             });
         },
         homePage: function () {
-            console.log('homePage');
+            this.createPage('HomePage');
         },
         showLoginState: function () {
             console.log('showLoginState');
@@ -38,7 +39,25 @@ define([
             console.log('dashboardPage');
         },
         notFoundPage: function () {
-            console.log('notFoundPage');
+            this.createPage('NotFoundPage');
+        },
+        createPage: function (type, params) {
+            var PageClass;
+
+            if (type === 'HomePage') {
+                PageClass = HomePage;
+            }
+
+            if (type === 'NotFoundPage') {
+                PageClass = NotFoundPage;
+            }
+            this.removeCurrentPage();
+            this.currentPage = (new PageClass(params)).render();
+        },
+        removeCurrentPage: function () {
+            if (this.currentPage) {
+                this.currentPage.trigger('removePage');
+            }
         }
     });
 

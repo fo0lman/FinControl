@@ -16,9 +16,25 @@ module.exports = function (grunt) {
                 files: 'dist/css/sass/*.scss',
                 tasks: 'sass'
             }
+        },
+        handlebars: {
+            compile: {
+                namespace: 'JST',
+                options: {
+                    amd: true,
+                    processName: function(filePath) {
+                        var pieces = filePath.split('/');
+                        return pieces[pieces.length - 1].split('.')[0];
+                    }
+                },
+                files: {
+                    'dist/js/templates/jst.js': 'dist/js/templates/*.hbs'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-contrib-watch');
 };
