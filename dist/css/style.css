@@ -17,6 +17,10 @@ footer {
   text-align: justify;
 }
 
+.not-found-page-content {
+  min-height: 800px;
+}
+
 .social-login {
   font-size: 32px;
   color: #31619e;

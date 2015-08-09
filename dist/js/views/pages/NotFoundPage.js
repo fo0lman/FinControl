@@ -7,9 +7,10 @@ define([
 
     var NotFoundPageView;
     NotFoundPageView = AbstractPage.extend({
-        title: 'Not Found!',
-        template: Handlebars.compile(JST.NotFoundPage())
-
+        title: 'Oops, Page not found!',
+        initialize: function() {
+            this.template = Handlebars.compile(JST.NotFoundPage({title: this.title}))
+        }
     });
 
     return NotFoundPageView;

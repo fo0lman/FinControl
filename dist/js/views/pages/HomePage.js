@@ -7,9 +7,10 @@ define([
 
     var HomePageView;
     HomePageView = AbstractPage.extend({
-        title: 'Home Page',
-        template: Handlebars.compile(JST.HomePage)
-
+        title: 'Wellcome to Home Page',
+        initialize: function() {
+            this.template = Handlebars.compile(JST.HomePage({title: this.title}));
+        }
     });
 
     return HomePageView;
