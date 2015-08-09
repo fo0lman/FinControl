@@ -30,10 +30,10 @@ define([
             console.log('showLoginState');
         },
         registartionPage: function () {
-            console.log('registartionPage');
+            this.createPage('RegistartionPage');
         },
         forgotPasswordPage: function () {
-            console.log('forgotPasswordPage');
+            this.createPage('ForgotPasswordPage');
         },
         dashboardPage: function () {
             console.log('dashboardPage');
@@ -46,6 +46,14 @@ define([
 
             if (type === 'HomePage') {
                 PageClass = HomePage;
+            }
+
+            if (type === 'ForgotPasswordPage') {
+                PageClass = ForgotPasswordPage;
+            }
+
+            if (type === 'RegistartionPage') {
+                PageClass = RegistartionPage;
             }
 
             if (type === 'NotFoundPage') {
