@@ -9,7 +9,7 @@ define([
     DashboardPageView = AbstractPage.extend({
         title: 'Dashboard',
         initialize: function() {
-            this.template = Handlebars.compile(JST.DashboardPage({title: this.title}))
+            this.template = Handlebars.compile(JST.DashboardPage({title: this.title}));
         }
     });
 

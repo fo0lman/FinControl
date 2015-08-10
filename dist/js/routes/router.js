@@ -5,8 +5,10 @@ define([
     'pages/LoginPage',
     'pages/RegistrationPage',
     'pages/ForgotPasswordPage',
-    'pages/DashboardPage'
-], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage) {
+    'pages/DashboardPage',
+
+    'modules/authorization'
+], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage, UserModule) {
     "use strict";
 
     var Router;
@@ -40,7 +42,11 @@ define([
             this.createPage('ForgotPasswordPage');
         },
         dashboardPage: function () {
-            this.createPage('DashboardPage');
+            if ( UserModule.getUserAuthStatus() ) {
+                this.createPage('DashboardPage');
+            } else {
+                this.mainpage();
+            }           
         },
         notFoundPage: function () {
             this.createPage('NotFoundPage');
