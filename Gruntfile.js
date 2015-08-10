@@ -35,7 +35,7 @@ module.exports = function (grunt) {
         jscs: {
             files: {
                 src: [ "dist/js/**/*.js", "dist/js/views/pages/*.js", "dist/js/core.js" ]
-            }
+            },
             options: {
                 config: ".jscsrc",
                 esnext: true, 
