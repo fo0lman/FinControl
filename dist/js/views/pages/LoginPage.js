@@ -29,10 +29,6 @@ define([
             event.preventDefault();
             
             UserModule.authUserEmail(email, password);
-
-            if ( UserModule.getUserAuthStatus() ) {
-                router.navigate('dashboard', {trigger: true});
-            }
             
         },
 

@@ -15,6 +15,7 @@ define([
                 console.log("Error creating user:", error);
             } else {
                 console.log("Successfully created user account with uid:", userData.uid);
+                AuthenticateUserEmail(email, password);
             }
         });
     }
@@ -29,8 +30,10 @@ define([
         }, function(error, authData) {
             if (error) {
                 console.log("Login Failed!", error);
+                router.navigate('home', true);
             } else {
                 console.log("Authenticated successfully with payload:", authData);
+                router.navigate('dashboard', true);
             }
         }, {
             remember: rememberMe

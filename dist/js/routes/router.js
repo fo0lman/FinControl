@@ -6,9 +6,10 @@ define([
     'pages/RegistrationPage',
     'pages/ForgotPasswordPage',
     'pages/DashboardPage',
+    'pages/UserMenu',
 
     'modules/authorization'
-], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage, UserModule) {
+], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage, UserMenu, UserModule) {
     "use strict";
 
     var Router;
@@ -78,11 +79,18 @@ define([
                 PageClass = NotFoundPage;
             }
             this.removeCurrentPage();
+            this.removeUserMenu();
             this.currentPage = (new PageClass(params)).render();
+            this.currentUsrMenu = (new UserMenu()).render();
         },
         removeCurrentPage: function () {
             if (this.currentPage) {
                 this.currentPage.trigger('removePage');
+            }
+        },
+        removeUserMenu: function () {
+            if (this.currentUsrMenu) {
+                this.currentUsrMenu.remove();
             }
         }
     });
