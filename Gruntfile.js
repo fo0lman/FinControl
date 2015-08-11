@@ -42,6 +42,53 @@ module.exports = function (grunt) {
                 verbose: true, 
                 requireCurlyBraces: [ "if" ]
             }
+        },
+        csslint: {
+            strict: {
+                options: {
+                    import: 2
+                },
+                src: ['dist/css/*.css']      
+            },
+            lax: {
+                options: {
+                    import: false
+                },
+                src: ['dist/css/*.css']
+            }
+        },
+        cssmin: {
+            options: {
+                shorthandCompacting: false,
+                roundingPrecision: -1
+            },
+            target: {
+                files: {
+                    'dist/css/style.css': 'dist/css/sass/style.scss'
+                }
+            }
+        },
+        imagemin: {                          
+            static: {                          
+                options: {                       
+                    optimizationLevel: 3,
+                    svgoPlugins: [{ removeViewBox: false }],
+                    use: [mozjpeg()]
+                },
+                files: {
+                    src: [ "dist/img/img.png", "dist/img/img.jpg", "dist/img/img.gif" ]
+                },
+            },
+        },
+        jshint: {
+            all: ['Gruntfile.js', 'dist/js/**/*.js', 'dist/js/views/pages/*.js', 'dist/js/core.js']
+        },
+        uglify: {
+            my_target: {
+                files: {
+                    src: [ "dist/js/**/*.js", "dist/js/views/pages/*.js", "dist/js/core.js" ]
+                }
+            }
         }
     });
 
@@ -49,4 +96,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-handlebars');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks("grunt-jscs");
+    grunt.loadNpmTasks("grunt-contrib-csslint");
+    grunt.loadNpmTasks("grunt-contrib-cssmin");
+    grunt.loadNpmTasks("grunt-contrib-imagemin");
+    grunt.loadNpmTasks("grunt-contrib-jshint");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
 };
