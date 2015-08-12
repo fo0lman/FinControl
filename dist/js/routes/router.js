@@ -6,6 +6,7 @@ define([
     'pages/RegistrationPage',
     'pages/ForgotPasswordPage',
     'pages/DashboardPage',
+
     'modules/authorization'
 ], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage, UserModule) {
     "use strict";
@@ -45,7 +46,7 @@ define([
                 this.createPage('DashboardPage');
             } else {
                 this.mainpage();
-            }           
+            }
         },
         notFoundPage: function () {
             this.createPage('NotFoundPage');
@@ -78,6 +79,7 @@ define([
             }
             this.removeCurrentPage();
             this.currentPage = (new PageClass(params)).render();
+
         },
         removeCurrentPage: function () {
             if (this.currentPage) {

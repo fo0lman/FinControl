@@ -1,6 +1,7 @@
 define([
-    'firebase'
-], function () {
+    'firebase',
+    'modules/alert'
+], function (fb, Alert) {
     "use strict";
 
     var rootRef;
@@ -15,6 +16,7 @@ define([
                 console.log("Error creating user:", error);
             } else {
                 console.log("Successfully created user account with uid:", userData.uid);
+                AuthenticateUserEmail(email, password);
             }
         });
     }
@@ -28,9 +30,14 @@ define([
             password: password
         }, function(error, authData) {
             if (error) {
-               console.log("Login Failed!", error);
+                console.log("Login Failed!", error);
+                new Alert({
+                    type: 'alert',
+                    text: 'Login Failed! ' + error
+                })
             } else {
                 console.log("Authenticated successfully with payload:", authData);
+                router.navigate('dashboard', true);
             }
         }, {
             remember: rememberMe
@@ -99,6 +106,7 @@ define([
                     uid: authData.uid,
                     provider: authData.provider,
                     token: authData.token,
+                    fullName: authData.password.email,
                     email: authData.password.email,
                     profileImageURL:authData.password.profileImageURL
                 };

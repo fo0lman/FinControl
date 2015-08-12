@@ -27,13 +27,7 @@ define([
             password = this.$el.find('#inputPassword3').val();
 
             event.preventDefault();
-            
             UserModule.authUserEmail(email, password);
-
-            //if ( UserModule.getUserAuthStatus() ) {
-            //    router.navigate('dashboard', {trigger: true});
-            //}
-            
         },
 
         loginUserSocial: function( event ) {

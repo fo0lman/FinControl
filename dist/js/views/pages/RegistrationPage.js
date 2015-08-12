@@ -25,8 +25,8 @@ define([
             email = this.$el.find('#inputEmail').val();
             password = this.$el.find('#inputPassword').val();
             event.preventDefault();
+
             UserModule.regUser(email, password);
-            router.navigate('dashboard', {trigger: true});
         }
     });
 

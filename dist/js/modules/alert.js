@@ -5,8 +5,7 @@ define([
 
     var Alert;
     Alert = function(options) {
-        var alertView = new AlertView(options); //alert, ok, warning-sign
+        new AlertView(options); //alert, ok, warning-sign
     };
-
     return Alert;
 });

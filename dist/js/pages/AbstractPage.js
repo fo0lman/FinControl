@@ -1,7 +1,8 @@
 define([
     'backbone',
-    'views/pages/PageTitle'
-], function (Backbone, PageTitleView) {
+    'views/pages/PageTitle',
+    'views/pages/UserMenu'
+], function (Backbone, PageTitleView, UserMenuView) {
 
     var AbstractPage;
     AbstractPage = Backbone.View.extend({
@@ -16,9 +17,12 @@ define([
                     title: self.title
                 }})
             );
+
             this.listenTo(this, 'removePage', this.removePage);
             this.changeTitle(this.title);
             $('.js-page').append(this.el);
+
+            this.usermenu = (new UserMenuView()).render();
         },
         render: function () {
             this.$el.append(this.renderComponents());
@@ -39,6 +43,7 @@ define([
                 var component = components[i];
                 component.remove();
             }
+            this.usermenu.remove();
             this.remove();
         }
     });
