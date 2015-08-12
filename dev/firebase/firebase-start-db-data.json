@@ -1,0 +1,168 @@
+{
+  "balance": {
+    "simplelogin:7": {
+      "count": 3000
+    },
+    "simplelogin:8": {
+      "count": 7000
+    },
+    "simplelogin:18": {
+      "count": 10000
+    },
+    "simplelogin:25": {
+      "count": 2000
+    }
+  },
+  "items": {
+    "simplelogin:7": {
+      "1": {
+        "date": 1453237200000,
+        "sum": "+1000",
+        "category": "internet",
+        "source": "visa/master-cart"
+      },
+      "2": {
+        "date": 1453237200000,
+        "sum": "-2000",
+        "category": "internet",
+        "source": "visa/master-cart"
+      },
+      "3": {
+        "date": 1453237200000,
+        "sum": "+3000",
+        "category": "internet",
+        "source": "visa/master-cart"
+      }
+    },
+    "simplelogin:8": {
+      "1": {
+        "date": 1453237200000,
+        "sum": "-1000",
+        "category": "internet",
+        "source": "visa/master-cart"
+      },
+      "2": {
+        "date": 1453237200000,
+        "sum": "+2000",
+        "category": "avans",
+        "source": "visa/master-cart"
+      },
+      "3": {
+        "date": 1453237200000,
+        "sum": "+3000",
+        "category": "zp",
+        "source": "visa/master-cart"
+      }
+    },
+    "simplelogin:18": {
+      "1": {
+        "date": 1453237200000,
+        "sum": "+1000",
+        "category": "internet",
+        "source": "visa/master-cart"
+      },
+      "2": {
+        "date": 1453237200000,
+        "sum": "+2000",
+        "category": "avans",
+        "source": "visa/master-cart"
+      },
+      "3": {
+        "date": 1453237200000,
+        "sum": "-300",
+        "category": "zp",
+        "source": "visa/master-cart"
+      }
+    },
+    "simplelogin:25": {
+      "1": {
+        "date": 1453237200000,
+        "sum": "-1000",
+        "category": "internet",
+        "source": "visa/master-cart"
+      },
+      "2": {
+        "date": 1453237200000,
+        "sum": "-2000",
+        "category": "avans",
+        "source": "visa/master-cart"
+      },
+      "3": {
+        "date": 1453237200000,
+        "sum": "-300",
+        "category": "zp",
+        "source": "visa/master-cart"
+      }
+    }
+  },
+  "category": {
+    "simplelogin:7": {
+      "1": {
+        "title": "internet"
+      },
+      "2": {
+        "title": "passage"
+      },
+      "3": {
+        "title": "rent"
+      },
+      "4": {
+        "title": "payments"
+      },
+      "5": {
+        "title": "food"
+      }
+    },
+    "simplelogin:8": {
+      "1": {
+        "title": "internet"
+      },
+      "2": {
+        "title": "passage"
+      },
+      "3": {
+        "title": "rent"
+      },
+      "4": {
+        "title": "payments"
+      },
+      "5": {
+        "title": "food"
+      }
+    },
+    "simplelogin:18": {
+      "1": {
+        "title": "internet"
+      },
+      "2": {
+        "title": "passage"
+      },
+      "3": {
+        "title": "rent"
+      },
+      "4": {
+        "title": "payments"
+      },
+      "5": {
+        "title": "food"
+      }
+    },
+    "simplelogin:25": {
+      "1": {
+        "title": "internet"
+      },
+      "2": {
+        "title": "passage"
+      },
+      "3": {
+        "title": "rent"
+      },
+      "4": {
+        "title": "payments"
+      },
+      "5": {
+        "title": "food"
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{ provider: 'password', uid: 'simplelogin:18' }
+
+items/simplelogin:18/4/
+
+{"date": 1453237200000, "sum": "+99999", "category": "new", "source": "paypal"}

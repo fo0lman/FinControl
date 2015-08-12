@@ -1,0 +1,29 @@
+{
+  "rules": {
+    "balance": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        ".validate": "newData.hasChildren(['count']) && newData.child('count').isNumber()"
+      }
+    },
+    "category": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        "$cat_id": {
+          ".validate": "newData.hasChildren(['title']) && newData.child('title').isString()"
+        }
+      }
+    },
+    "items": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        "$item_id": {
+          ".validate": "newData.hasChildren(['category', 'date', 'source', 'sum']) && newData.child('category').isString() && newData.child('date').isNumber() && newData.child('source').isString() && newData.child('sum').isString()"
+        }
+      }
+    }
+  }
+}

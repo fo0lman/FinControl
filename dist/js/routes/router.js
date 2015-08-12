@@ -50,7 +50,7 @@ define([
                     callback.call(router);
                     return;
                 }
-            };
+            }
 
             if (isAuth) {
                 router.navigate('dashboard', true);
@@ -58,10 +58,6 @@ define([
                 router.navigate('home', true);
             }
           })  
-        },
-
-        checkAccess: function (isAuth) {
-
         },
 
         mainpage: function () {
