@@ -1,0 +1,16 @@
+{
+  "name": "FinControl",
+  "version": "0.0.0",
+  "homepage": "https://github.com/fo0lman/FinControl",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbonefire": "~0.5.1"
+  }
+}
