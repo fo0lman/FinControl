@@ -71,7 +71,7 @@ this["JST"]["UserMenuLogin"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta
 
   return "<ul class=\"nav navbar-nav top-menu\">\r\n    <li><a href=\"#dashboard\">Dashboard</a></li>\r\n    <li><a href=\"#statistics\">Statistics</a></li>\r\n    <li><a href=\"#reports\">Reports</a></li>\r\n</ul>\r\n<ul class=\"nav navbar-nav user-top-menu pull-right\">\r\n    <li><a href=\"#settings\"><i class=\"fa fa-cog\"></i></a></li>\r\n    <li class=\"dropdown\"><a href=\"#avatar\" class=\"dropdown-toggle\" data-toggle=\"dropdown\"><i class=\"fa fa-user\"></i> "
     + this.escapeExpression(((helper = (helper = helpers.username || (depth0 != null ? depth0.username : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"username","hash":{},"data":data}) : helper)))
-    + "</a>\r\n    	<ul class=\"dropdown-menu\">\r\n		    <li><a href=\"#\" id=\"signout\"><i class=\"fa fa-sign-out\"></i> Sign out</a></li>\r\n  		</ul>\r\n    </li>    \r\n</ul>";
+    + "</a>\r\n    	<ul class=\"dropdown-menu\">\r\n		    <li><a href=\"#signout\" id=\"signout\"><i class=\"fa fa-sign-out\"></i> Sign out</a></li>\r\n  		</ul>\r\n    </li>    \r\n</ul>";
 },"useData":true});
 
 this["JST"]["UserMenuLogout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

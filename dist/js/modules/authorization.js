@@ -87,6 +87,7 @@ define([
                 console.log("Login Failed!", error);
             } else {
                 console.log("Authenticated successfully with payload:", authData);
+                router.navigate('dashboard', true);
             } }, {
             remember: 'default', //sessionOnly
             scope: providerScope

@@ -20,32 +20,60 @@ define([
             'registration(/)': 'registartionPage',
             'forgotpass(/)': 'forgotPasswordPage',
             'dashboard(/)': 'dashboardPage',
-
+            'signout(/)': 'signOutUser',
             '*anything(/)': 'notFoundPage'
         },
         mainpage: function () {
-            this.navigate('home', {
-                trigger: true,
-                replace: true
-            });
-        },
-        homePage: function () {
-            this.createPage('HomePage');
-        },
-        loginPage: function () {
-            this.createPage('LoginPage');
-        },
-        registartionPage: function () {
-            this.createPage('RegistrationPage');
-        },
-        forgotPasswordPage: function () {
-            this.createPage('ForgotPasswordPage');
-        },
-        dashboardPage: function () {
-            if ( UserModule.getUserAuthStatus() ) {
+            if (UserModule.getUserAuthStatus()) {
                 this.createPage('DashboardPage');
             } else {
-                this.mainpage();
+                this.navigate('home', {
+                    trigger: true,
+                    replace: true
+                });
+            }
+        },
+        homePage: function () {
+            if (UserModule.getUserAuthStatus()) {
+                this.createPage('DashboardPage');
+            } else {
+                this.createPage('HomePage');
+            }
+        },
+        loginPage: function () {
+            if (UserModule.getUserAuthStatus()) {
+                this.createPage('DashboardPage');
+            } else {
+                this.createPage('LoginPage');
+            }
+        },
+        registartionPage: function () {
+            if (UserModule.getUserAuthStatus()) {
+                this.createPage('DashboardPage');
+            } else {
+                this.createPage('RegistrationPage');
+            }
+        },
+        forgotPasswordPage: function () {
+            if (UserModule.getUserAuthStatus()) {
+                this.createPage('DashboardPage');
+            } else {
+                this.createPage('ForgotPasswordPage');
+            }
+        },
+        dashboardPage: function () {
+            if (UserModule.getUserAuthStatus()) {
+                this.createPage('DashboardPage');
+            } else {
+                this.createPage('LoginPage');
+            }
+        },
+        signOutUser: function () {
+            if (UserModule.getUserAuthStatus()) {
+                UserModule.logoutUser();
+                this.createPage('HomePage');
+            } else {
+                this.createPage('HomePage');
             }
         },
         notFoundPage: function () {

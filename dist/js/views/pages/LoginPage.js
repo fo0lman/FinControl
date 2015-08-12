@@ -12,7 +12,10 @@ define([
 
         events: {
             'submit': 'login',
-            'click .social-login li a': 'loginUserSocial'
+            'click .social-login .fa-google-plus': 'loginUserGoogle',
+            'click .social-login .fa-twitter': 'loginUserTwitter',
+            'click .social-login .fa-facebook': 'loginUserFacebook',
+            'click .social-login .fa-github': 'loginUserGithub',
         },
 
         initialize: function() {
@@ -29,8 +32,19 @@ define([
             event.preventDefault();
             UserModule.authUserEmail(email, password);
         },
-
-        loginUserSocial: function( event ) {
+        loginUserGoogle: function( event ) {
+            event.preventDefault();
+            UserModule.authUserSocial('google');
+        },
+        loginUserTwitter: function( event ) {
+            event.preventDefault();
+            UserModule.authUserSocial('twitter');
+        },
+        loginUserFacebook: function( event ) {
+            event.preventDefault();
+            UserModule.authUserSocial('facebook');
+        },
+        loginUserGithub: function( event ) {
             event.preventDefault();     
             UserModule.authUserSocial('github');
         }
