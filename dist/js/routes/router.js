@@ -23,58 +23,84 @@ define([
             'signout(/)': 'signOutUser',
             '*anything(/)': 'notFoundPage'
         },
-        mainpage: function () {
-            if (UserModule.getUserAuthStatus()) {
-                this.createPage('DashboardPage');
+
+        accessUrls: {
+            'true': [
+                'dashboard',
+                'signout'
+            ],
+
+            'false': [
+                'mainpage',
+                'homepage',
+                'loginpage',
+                'registrationpage',
+                'forgotpasswordpage'
+            ]
+        },
+
+        initialize: function () {
+          this.listenTo(this, 'changeUrl', function (url, callback) {
+            var isAuth = UserModule.getUserAuthStatus(),
+                router = this,
+                accessUrl = this.accessUrls[isAuth];
+
+            for (var i = 0; i < accessUrl.length; i++) {
+                if (accessUrl[i] === url) {
+                    callback.call(router);
+                    return;
+                }
+            };
+
+            if (isAuth) {
+                router.navigate('dashboard', true);
             } else {
+                router.navigate('home', true);
+            }
+          })  
+        },
+
+        checkAccess: function (isAuth) {
+
+        },
+
+        mainpage: function () {
+            this.trigger('changeUrl', 'mainpage', function () {
                 this.navigate('home', {
                     trigger: true,
                     replace: true
                 });
-            }
+            });
         },
         homePage: function () {
-            if (UserModule.getUserAuthStatus()) {
-                this.createPage('DashboardPage');
-            } else {
+            this.trigger('changeUrl', 'homepage', function () {
                 this.createPage('HomePage');
-            }
+            });
         },
         loginPage: function () {
-            if (UserModule.getUserAuthStatus()) {
-                this.createPage('DashboardPage');
-            } else {
+            this.trigger('changeUrl', 'loginpage', function () {
                 this.createPage('LoginPage');
-            }
+            });
         },
         registartionPage: function () {
-            if (UserModule.getUserAuthStatus()) {
-                this.createPage('DashboardPage');
-            } else {
+            this.trigger('changeUrl', 'registrationpage', function () {
                 this.createPage('RegistrationPage');
-            }
+            });
         },
         forgotPasswordPage: function () {
-            if (UserModule.getUserAuthStatus()) {
-                this.createPage('DashboardPage');
-            } else {
+            this.trigger('changeUrl', 'forgotpasswordpage', function () {
                 this.createPage('ForgotPasswordPage');
-            }
+            });
         },
         dashboardPage: function () {
-            if (UserModule.getUserAuthStatus()) {
-                this.createPage('DashboardPage');
-            } else {
+            this.trigger('changeUrl', 'dashboard', function () {
                 this.createPage('LoginPage');
-            }
+            });
         },
         signOutUser: function () {
-            if (UserModule.getUserAuthStatus()) {
+            this.trigger('changeUrl', 'signout', function () {
                 UserModule.logoutUser();
-                this.createPage('HomePage');
-            } else {
-                this.createPage('HomePage');
-            }
+            });
         },
         notFoundPage: function () {
             this.createPage('NotFoundPage');
