@@ -30,9 +30,9 @@ define([
             
             UserModule.authUserEmail(email, password);
 
-            if ( UserModule.getUserAuthStatus() ) {
-                router.navigate('dashboard', {trigger: true});
-            }
+            //if ( UserModule.getUserAuthStatus() ) {
+            //    router.navigate('dashboard', {trigger: true});
+            //}
             
         },
 

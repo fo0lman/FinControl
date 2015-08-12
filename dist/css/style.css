@@ -41,3 +41,37 @@ footer {
   font-size: 32px;
   color: #31619e;
 }
+
+.alert.fixed {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1200;
+  color: #fff;
+}
+
+.alert .close {
+  color: #fff;
+}
+
+.alert p {
+  padding: 5px;
+}
+
+.glyphicon {
+  font-size: 24px;
+}
+
+.glyphicon-alert {
+  color: #f00;
+}
+
+.glyphicon-warning-sign {
+  color: #00559e;
+}
+
+.glyphicon-ok {
+  color: #049e00;
+}

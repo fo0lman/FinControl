@@ -6,7 +6,6 @@ define([
     'pages/RegistrationPage',
     'pages/ForgotPasswordPage',
     'pages/DashboardPage',
-
     'modules/authorization'
 ], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage, UserModule) {
     "use strict";
