@@ -8,6 +8,9 @@ define([
 
     var UserMenuView;
     UserMenuView = Backbone.View.extend({
+        events: {
+            'click #signout': 'logOutUser'
+        },
         initialize: function () {
             if ( UserModule.getUserAuthStatus() ) {
                 this.template = Handlebars.compile( JST.UserMenuLogin( { username: UserModule.getUserData().fullName} ) );
@@ -19,6 +22,9 @@ define([
         render: function() {
             this.$el.html(this.template());
             return this;
+        },
+        logOutUser: function () {
+            UserModule.logoutUser();
         }
     });
     return UserMenuView;

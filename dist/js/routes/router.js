@@ -1,5 +1,6 @@
 define([
     'backbone',
+
     'pages/HomePage',
     'pages/NotFoundPage',
     'pages/LoginPage',
@@ -7,8 +8,30 @@ define([
     'pages/ForgotPasswordPage',
     'pages/DashboardPage',
 
-    'modules/authorization'
-], function (Backbone, HomePage, NotFoundPage, LoginPage, RegistrationPage, ForgotPasswordPage, DashboardPage, UserModule) {
+    'pages/StatisticsPage',
+    'pages/ReportsPage',
+    'pages/SettingsPage',
+    'pages/AboutPage',
+    'pages/HelpPage',
+
+    'modules/redirect'
+], function (
+    Backbone,
+
+    HomePage,
+    NotFoundPage,
+    LoginPage,
+    RegistrationPage,
+    ForgotPasswordPage,
+    DashboardPage,
+    StatisticsPage,
+    ReportsPage,
+    SettingsPage,
+    AboutPage,
+    HelpPage,
+
+    RedirectModule
+) {
     "use strict";
 
     var Router;
@@ -19,49 +42,23 @@ define([
             'login(/)': 'loginPage',
             'registration(/)': 'registartionPage',
             'forgotpass(/)': 'forgotPasswordPage',
+
             'dashboard(/)': 'dashboardPage',
+            'statistics(/)': 'statisticsPage',
+            'reports(/)': 'reportsPage',
+            'settings(/)': 'settingsPage',
             'signout(/)': 'signOutUser',
+
+            'about(/)': 'aboutPage',
+            'help(/)': 'helpPage',
+
             '*anything(/)': 'notFoundPage'
         },
-
-        accessUrls: {
-            'true': [
-                'dashboard',
-                'signout'
-            ],
-
-            'false': [
-                'mainpage',
-                'homepage',
-                'loginpage',
-                'registrationpage',
-                'forgotpasswordpage'
-            ]
-        },
-
         initialize: function () {
-          this.listenTo(this, 'changeUrl', function (url, callback) {
-            var isAuth = UserModule.getUserAuthStatus(),
-                router = this,
-                accessUrl = this.accessUrls[isAuth];
-
-            for (var i = 0; i < accessUrl.length; i++) {
-                if (accessUrl[i] === url) {
-                    callback.call(router);
-                    return;
-                }
-            }
-
-            if (isAuth) {
-                router.navigate('dashboard', true);
-            } else {
-                router.navigate('home', true);
-            }
-          })  
+          this.listenTo(this, 'changeUrl', RedirectModule)
         },
-
         mainpage: function () {
-            this.trigger('changeUrl', 'mainpage', function () {
+            this.trigger('changeUrl', 'main', function () {
                 this.navigate('home', {
                     trigger: true,
                     replace: true
@@ -69,35 +66,62 @@ define([
             });
         },
         homePage: function () {
-            this.trigger('changeUrl', 'homepage', function () {
+            this.trigger('changeUrl', 'home', function () {
                 this.createPage('HomePage');
             });
         },
         loginPage: function () {
-            this.trigger('changeUrl', 'loginpage', function () {
+            this.trigger('changeUrl', 'login', function () {
                 this.createPage('LoginPage');
             });
         },
         registartionPage: function () {
-            this.trigger('changeUrl', 'registrationpage', function () {
+            this.trigger('changeUrl', 'registration', function () {
                 this.createPage('RegistrationPage');
             });
         },
         forgotPasswordPage: function () {
-            this.trigger('changeUrl', 'forgotpasswordpage', function () {
+            this.trigger('changeUrl', 'forgotpassword', function () {
                 this.createPage('ForgotPasswordPage');
             });
         },
         dashboardPage: function () {
             this.trigger('changeUrl', 'dashboard', function () {
-                this.createPage('LoginPage');
+                this.createPage('DashboardPage');
+            });
+        },
+        statisticsPage: function () {
+            this.trigger('changeUrl', 'statistics', function () {
+                this.createPage('StatisticsPage');
+            });
+        },
+        reportsPage: function () {
+            this.trigger('changeUrl', 'reports', function () {
+                this.createPage('ReportsPage');
+            });
+        },
+        settingsPage: function () {
+            this.trigger('changeUrl', 'settings', function () {
+                this.createPage('SettingsPage');
             });
         },
         signOutUser: function () {
             this.trigger('changeUrl', 'signout', function () {
-                UserModule.logoutUser();
+                this.createPage('HomePage');
             });
         },
+
+        aboutPage: function () {
+            this.trigger('changeUrl', 'about', function () {
+                this.createPage('AboutPage');
+            });
+        },
+        helpPage: function () {
+            this.trigger('changeUrl', 'help', function () {
+                this.createPage('HelpPage');
+            });
+        },
+
         notFoundPage: function () {
             this.createPage('NotFoundPage');
         },
@@ -107,23 +131,33 @@ define([
             if (type === 'HomePage') {
                 PageClass = HomePage;
             }
-
             if (type === 'ForgotPasswordPage') {
                 PageClass = ForgotPasswordPage;
             }
-
             if (type === 'LoginPage') {
                 PageClass = LoginPage;
             }
-
             if (type === 'RegistrationPage') {
                 PageClass = RegistrationPage;
             }
-
             if (type === 'DashboardPage') {
                 PageClass = DashboardPage;
             }
-
+            if (type === 'StatisticsPage') {
+                PageClass = StatisticsPage;
+            }
+            if (type === 'ReportsPage') {
+                PageClass = ReportsPage;
+            }
+            if (type === 'SettingsPage') {
+                PageClass = SettingsPage;
+            }
+            if (type === 'AboutPage') {
+                PageClass = AboutPage;
+            }
+            if (type === 'HelpPage') {
+                PageClass = HelpPage;
+            }
             if (type === 'NotFoundPage') {
                 PageClass = NotFoundPage;
             }

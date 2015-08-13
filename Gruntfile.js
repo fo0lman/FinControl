@@ -89,6 +89,15 @@ module.exports = function (grunt) {
                     src: [ "dist/js/**/*.js", "dist/js/views/pages/*.js", "dist/js/core.js" ]
                 }
             }
+        },
+        requirejs: {
+            compile: {
+                options: {
+                    baseUrl: "dist/js",
+                    mainConfigFile: "dist/js/core.js",
+                    out: "dist/js/main.min.js"
+                }
+            }
         }
     });
 
@@ -101,4 +110,5 @@ module.exports = function (grunt) {
     //grunt.loadNpmTasks("grunt-contrib-imagemin");
     grunt.loadNpmTasks("grunt-contrib-jshint");
     grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks('grunt-requirejs');
 };
