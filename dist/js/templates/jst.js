@@ -25,11 +25,19 @@ this["JST"]["Alert"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
 },"useData":true});
 
 this["JST"]["DashboardPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<div class=\"row dashboard-page-content text-center\">\r\n    <div class=\"col-md-8 col-md-offset-2\">\r\n        <h1>"
-    + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h1>\r\n    </div>\r\n</div>";
+  return "<div class=\"row\">\r\n    <div class=\"row dashboard-page-content text-center\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            <h1>"
+    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</h1>\r\n        </div>\r\n    </div>\r\n   <div class=\"row home-page-content\">\r\n        <div class=\"col-md-5\">\r\n            <form class=\"form-inline\">\r\n                <label for=\"inputBalance\" class=\"col-sm-2 control-label\">Balance:</label>\r\n                <div class=\"col-sm-2\">\r\n                    <input type=\"text\" class=\"input-medium\" id=\"inputBalance\" placeholder=\"Balance\">\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div class=\"row home-page-content main-page-nav\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"btn-toolbar\">\r\n                <button type=\"button\" class=\"btn btn-primary nav-pills\">Add</button>\r\n                <label class=\"col-sm-2\">Favorite:</label>\r\n                <div class=\"btn-group\">\r\n                    <button type=\"button\" class=\"btn btn-primary nav-pills\">Интернет</button>\r\n                    <button type=\"button\" class=\"btn btn-primary nav-pills\">Кварплата</button>\r\n                    <button type=\"button\" class=\"btn btn-primary nav-pills\">Сотовый</button>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <div class=\"row main-page-nav\">\r\n        <table class=\"table table-striped table-hover table-bordered\">\r\n            <thead>\r\n                <tr>\r\n                    <th>Date</th>\r\n                    <th>Sum</th>\r\n                    <th>Category</th>\r\n                    <th>Source</th>\r\n                    <th></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr>\r\n                    <td>"
+    + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
+    + "</td>\r\n                    <td>"
+    + alias3(((helper = (helper = helpers.sum || (depth0 != null ? depth0.sum : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sum","hash":{},"data":data}) : helper)))
+    + "</td>\r\n                    <td>"
+    + alias3(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
+    + "</td>\r\n                    <td>"
+    + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
+    + "</td>\r\n                    <td>X</td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>";
 },"useData":true});
 
 this["JST"]["ForgotPasswordPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

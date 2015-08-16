@@ -3,28 +3,28 @@
  */
 
 define([
-  'backbonefire',
-  'modules/authorization'
-], function (
-  Backbonefire,
-  authModule
-) {
+    'backbonefire',
+    'modules/authorization'
+], function (Backbonefire,
+             authModule) {
+    "use strict";
 
-  var Balance = Backbone.Firebase.Model.extend({
-    urlRoot: 'https://fincontrol.firebaseio.com',
+    var Balance;
+    Balance = Backbone.Firebase.Model.extend({
+        urlRoot: 'https://fincontrol.firebaseio.com',
 
-    initialize: function () {
-      this.setUrl();
-    },
+        initialize: function () {
+            this.setUrl();
+        },
 
-    setUrl: function () {
-      var uid = authModule.getUserData().uid,
-        ref = authModule.rootRef;
+        setUrl: function () {
+            var uid = authModule.getUserData().uid,
+                ref = authModule.rootRef;
 
-      this.urlRoot = ref.child('balance').child(uid);
-    }
-  });
+            this.urlRoot = ref.child('balance').child(uid);
+        }
+    });
 
-  return Balance;
+    return Balance;
 });
 

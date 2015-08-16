@@ -161,8 +161,10 @@ define([
             if (type === 'NotFoundPage') {
                 PageClass = NotFoundPage;
             }
+
             this.removeCurrentPage();
             this.currentPage = (new PageClass(params)).render();
+            //this.currentPage = (new Type(params)).render();
 
         },
         removeCurrentPage: function () {
