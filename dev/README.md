@@ -8,3 +8,5 @@ Sergey - foolman.sy@gmail.com
 Аleksandra - aleksandraobolonkova@yandex.ru
 
 Yuriy - trifonkov@gmail.com
+
+Oksana - chetvertakova.oksana@gmail.com
