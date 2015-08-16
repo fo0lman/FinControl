@@ -176,6 +176,7 @@ define([
         authUserSocial: AuthenticateUserSocial,
         getUserAuthStatus: getUserAuthStatus,
         getUserData: getUserData,
-        logoutUser: logoutUser
+        logoutUser: logoutUser,
+        rootRef: rootRef
     }
 });
