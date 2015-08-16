@@ -3,28 +3,33 @@
  */
 
 define([
-    'backbonefire',
-    'modules/authorization'
-], function (Backbonefire,
-             authModule) {
-    "use strict";
+  'backbonefire',
+  'modules/authorization'
+], function (
+  Backbonefire,
+  authModule
+) {
 
-    var Balance;
-    Balance = Backbone.Firebase.Model.extend({
-        urlRoot: 'https://fincontrol.firebaseio.com',
+  var Balance = Backbone.Firebase.Model.extend({
 
-        initialize: function () {
-            this.setUrl();
-        },
+    initialize: function () {
+      this.setUrl();
+    },
 
-        setUrl: function () {
-            var uid = authModule.getUserData().uid,
-                ref = authModule.rootRef;
+    // вынес установку урл в отдельную функцию
+    // ее необходимо вызывать после создания экземпляра
+    setUrl: function () {
+      // получаем uid текущего юзера
+      // получем ссылку на базу
+      var uid = authModule.getUserData().uid,
+        ref = authModule.rootRef;
 
-            this.urlRoot = ref.child('balance').child(uid);
-        }
-    });
+      // устанавливаем url методами child
+      // данные по балансу лежат в ветке balance
+      this.urlRoot = ref.child('balance').child(uid);
+    }
+  });
 
-    return Balance;
+  return Balance;
 });
 
