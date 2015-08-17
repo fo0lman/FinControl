@@ -1,61 +1,22 @@
-define([
-    'pages/HomePage',
-    'pages/NotFoundPage',
-    'pages/LoginPage',
-    'pages/RegistrationPage',
-    'pages/ForgotPasswordPage',
-
-    'pages/DashboardPage',
-    'pages/StatisticsPage',
-    'pages/ReportsPage',
-    'pages/SettingsPage',
-
-    'pages/AboutPage',
-    'pages/HelpPage'
-], function (
-    HomePage,
-    NotFoundPage,
-    LoginPage,
-    RegistrationPage,
-    ForgotPasswordPage,
-
-    DashboardPage,
-    StatisticsPage,
-    ReportsPage,
-    SettingsPage,
-
-    AboutPage,
-    HelpPage
-) {
+define(function (require) {
     "use strict";
 
-    var currentPage,
-        Pages = {
-            HomePage: HomePage,
-            NotFoundPage: NotFoundPage,
-            LoginPage: LoginPage,
-            RegistrationPage: RegistrationPage,
-            ForgotPasswordPage: ForgotPasswordPage,
-            DashboardPage: DashboardPage,
-            StatisticsPage: StatisticsPage,
-            ReportsPage: ReportsPage,
-            SettingsPage: SettingsPage,
-            AboutPage: AboutPage,
-            HelpPage: HelpPage
-        };
-
-
+    var currentPage;
     function createPage(type, params) {
-        removeCurrentPage();
-        currentPage = (new Pages[type](params)).render();
+        try {
+            removeCurrentPage();
+            require(['pages/'+type], function (Page) {
+                currentPage = (new Page(params)).render();
+            })
+        } catch (error) {
+            throw new Error('Unknown Page - ' + type);
+        }
     }
-
     function removeCurrentPage() {
         if (currentPage) {
             currentPage.trigger('removePage');
         }
     }
-
     return {
         create: createPage
     }
