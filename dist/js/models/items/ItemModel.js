@@ -12,7 +12,7 @@ define([
         },
         defaults: {
             date: (new Date()).getTime(),
-            sum: 0,
+            sum: '0',
             category: 'Other',
             source: 'Cash'
         }

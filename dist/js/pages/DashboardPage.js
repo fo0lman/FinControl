@@ -3,8 +3,9 @@ define([
     'views/pages/DashboardPage',
     'views/BalanceView',
     'views/ItemsView',
-    'collections/ItemsCollection'
-], function (AbstractPage, DashboardPageView, BalanceView, ItemsView, ItemsCollection) {
+    'collections/ItemsCollection',
+    'views/pages/AddItemPopup'
+], function (AbstractPage, DashboardPageView, BalanceView, ItemsView, ItemsCollection, AddItemPopup) {
     "use strict";
 
     var DashboardPage;
@@ -24,6 +25,10 @@ define([
                 collection: new ItemsCollection()
             });
             this.components.push(itemsView);
+
+            window.addITEM = function() {
+               var addIt = new AddItemPopup();
+            };
 
         }
     });
