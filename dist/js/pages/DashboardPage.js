@@ -26,9 +26,21 @@ define([
             });
             this.components.push(itemsView);
 
-            window.addITEM = function() {
-               var addIt = new AddItemPopup();
+
+            window.addITEM = function () {
+                var addIt = new AddItemPopup();
+                addIt.on('addform:submitted', function (formData) {
+                    var item = new ItemsCollection();
+                    item.create(formData);
+                });
             };
+
+            //var addIt = new AddItemPopup();
+            //addIt.on('addform:submitted', function (formData) {
+            //    var item = new ItemsCollection();
+            //    item.create(formData);
+            //});
+
 
         }
     });

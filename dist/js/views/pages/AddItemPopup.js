@@ -15,7 +15,8 @@ define([
         },
         events: {
             'click .js-close': 'close',
-            'click .js-add-item': 'addItem'
+            'click .js-add-item': 'addItem',
+            'submit .add-item-form': 'addItem'
         },
 
         initialize: function() {
@@ -29,12 +30,11 @@ define([
         },
         addItem: function (event) {
             event.preventDefault();
-            var item = new ItemsCollection();
-            item.create({
-                "date": 1453337200000,
-                "sum": "+111112",
-                "category": "test",
-                "source": "test_money"
+            this.trigger('addform:submitted', {
+                date: parseInt(this.$('#inputDate').val(), 10),
+                sum: this.$('#inputSum').val(),
+                category: this.$('#inputCategory').val(),
+                source: this.$('#inputSource').val()
             });
             this.close();
         },
