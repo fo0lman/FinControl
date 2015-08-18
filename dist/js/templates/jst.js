@@ -27,9 +27,9 @@ this["JST"]["Alert"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
 this["JST"]["Balance"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"row\">\r\n    <div class=\"col-md-5\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"form-group\">\r\n                <label for=\"inputBalance\">Balance:</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"inputBalance\" value=\""
+  return "<div class=\"col-md-5\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"form-group\">\r\n                <label for=\"inputBalance\">Balance:</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"inputBalance\" value=\""
     + this.escapeExpression(((helper = (helper = helpers.count || (depth0 != null ? depth0.count : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"count","hash":{},"data":data}) : helper)))
-    + "\">\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>";
+    + "\">\r\n            </div>\r\n        </form>\r\n    </div>\r\n";
 },"useData":true});
 
 this["JST"]["Buttons"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -39,9 +39,9 @@ this["JST"]["Buttons"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
 this["JST"]["DashboardPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"row\">\r\n    <div class=\"row dashboard-page-content text-center\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            <h1>"
+  return "<div class=\"col-md-8 col-md-offset-2\">\r\n    <h1>"
     + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h1>\r\n        </div>\r\n    </div>\r\n\r\n</div>";
+    + "</h1>\r\n</div>\r\n";
 },"useData":true});
 
 this["JST"]["ForgotPasswordPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -71,15 +71,15 @@ this["JST"]["HomePage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],
 this["JST"]["Item"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 
-  return "<tr>\r\n    <td>"
+  return "<td>"
     + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
-    + "</td>\r\n    <td>"
+    + "</td>\r\n<td>"
     + alias3(((helper = (helper = helpers.sum || (depth0 != null ? depth0.sum : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sum","hash":{},"data":data}) : helper)))
-    + "</td>\r\n    <td>"
+    + "</td>\r\n<td>"
     + alias3(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
-    + "</td>\r\n    <td>"
+    + "</td>\r\n<td>"
     + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
-    + "</td>\r\n    <td><i class=\"fa fa-trash-o\"></i></td>\r\n</tr>";
+    + "</td>\r\n<td><i class=\"fa fa-trash-o\"></i></td>";
 },"useData":true});
 
 this["JST"]["Items"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -103,7 +103,11 @@ this["JST"]["NotFoundPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.
 },"useData":true});
 
 this["JST"]["PageTitle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "";
+    var helper;
+
+  return "<div class=\"col-md-8 col-md-offset-2\">\r\n    <h1>"
+    + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</h1>\r\n</div>\r\n";
 },"useData":true});
 
 this["JST"]["RegistrationPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

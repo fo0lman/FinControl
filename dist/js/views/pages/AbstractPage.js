@@ -5,6 +5,7 @@ define([
 
     var AbstractPageView;
     AbstractPageView = Backbone.View.extend({
+        className: "abstract-page",
         changeTitle: function (title) {
             document.querySelector('title').firstChild.nodeValue = title;
         },

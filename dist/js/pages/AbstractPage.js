@@ -1,9 +1,8 @@
 define([
     'backbone',
-    'views/pages/PageTitle',
     'views/pages/UserMenu',
     'modules/spinner'
-], function (Backbone, PageTitleView, UserMenuView, Spinner) {
+], function (Backbone, UserMenuView, Spinner) {
 
     var AbstractPage;
     AbstractPage = Backbone.View.extend({
@@ -11,15 +10,8 @@ define([
             document.querySelector('title').firstChild.nodeValue = title;
         },
         initialize: function () {
-            var self = this;
 
             this.components = [];
-
-            this.components.push(
-                new PageTitleView({data: {
-                    title: self.title
-                }})
-            );
 
             this.listenTo(this, 'removePage', this.removePage);
             this.changeTitle(this.title);

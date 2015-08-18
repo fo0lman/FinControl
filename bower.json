@@ -11,6 +11,7 @@
     "tests"
   ],
   "dependencies": {
-    "backbonefire": "~0.5.1"
+    "backbonefire": "~0.5.1",
+    "firebase": "~2.2.9"
   }
 }

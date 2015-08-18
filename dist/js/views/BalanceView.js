@@ -9,6 +9,7 @@ define([
 
     var BalanceView;
     BalanceView = Backbone.View.extend({
+        className: "row",
         model: getBalanceModel(),
         initialize: function () {
             this.listenTo(this.model, 'sync', this.render)
