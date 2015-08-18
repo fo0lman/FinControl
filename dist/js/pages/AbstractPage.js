@@ -1,8 +1,9 @@
 define([
     'backbone',
     'views/pages/PageTitle',
-    'views/pages/UserMenu'
-], function (Backbone, PageTitleView, UserMenuView) {
+    'views/pages/UserMenu',
+    'modules/spinner'
+], function (Backbone, PageTitleView, UserMenuView, Spinner) {
 
     var AbstractPage;
     AbstractPage = Backbone.View.extend({
@@ -11,7 +12,9 @@ define([
         },
         initialize: function () {
             var self = this;
+
             this.components = [];
+
             this.components.push(
                 new PageTitleView({data: {
                     title: self.title

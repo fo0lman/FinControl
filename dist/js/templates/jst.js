@@ -24,20 +24,24 @@ this["JST"]["Alert"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
     + "</p>\r\n</div>";
 },"useData":true});
 
+this["JST"]["Balance"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div class=\"row\">\r\n    <div class=\"col-md-5\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"form-group\">\r\n                <label for=\"inputBalance\">Balance:</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"inputBalance\" value=\""
+    + this.escapeExpression(((helper = (helper = helpers.count || (depth0 != null ? depth0.count : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"count","hash":{},"data":data}) : helper)))
+    + "\">\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>";
+},"useData":true});
+
+this["JST"]["Buttons"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"row\">\r\n    <form class=\"form-inline\">\r\n        <div class=\"btn-toolbar\">\r\n            <button type=\"button\" class=\"btn btn-primary nav-pills\">Add</button>\r\n            <label class=\"col-sm-2\">Favorite:</label>\r\n            <div class=\"btn-group\">\r\n                <button type=\"button\" class=\"btn btn-primary nav-pills\">��������</button>\r\n                <button type=\"button\" class=\"btn btn-primary nav-pills\">���������</button>\r\n                <button type=\"button\" class=\"btn btn-primary nav-pills\">�������</button>\r\n            </div>\r\n        </div>\r\n    </form>\r\n</div>";
+},"useData":true});
+
 this["JST"]["DashboardPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+    var helper;
 
   return "<div class=\"row\">\r\n    <div class=\"row dashboard-page-content text-center\">\r\n        <div class=\"col-md-8 col-md-offset-2\">\r\n            <h1>"
-    + alias3(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h1>\r\n        </div>\r\n    </div>\r\n   <div class=\"row home-page-content\">\r\n        <div class=\"col-md-5\">\r\n            <form class=\"form-inline\">\r\n                <label for=\"inputBalance\" class=\"col-sm-2 control-label\">Balance:</label>\r\n                <div class=\"col-sm-2\">\r\n                    <input type=\"text\" class=\"input-medium\" id=\"inputBalance\" placeholder=\"Balance\">\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n    <div class=\"row home-page-content main-page-nav\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"btn-toolbar\">\r\n                <button type=\"button\" class=\"btn btn-primary nav-pills\">Add</button>\r\n                <label class=\"col-sm-2\">Favorite:</label>\r\n                <div class=\"btn-group\">\r\n                    <button type=\"button\" class=\"btn btn-primary nav-pills\">Интернет</button>\r\n                    <button type=\"button\" class=\"btn btn-primary nav-pills\">Кварплата</button>\r\n                    <button type=\"button\" class=\"btn btn-primary nav-pills\">Сотовый</button>\r\n                </div>\r\n            </div>\r\n        </form>\r\n    </div>\r\n    <div class=\"row main-page-nav\">\r\n        <table class=\"table table-striped table-hover table-bordered\">\r\n            <thead>\r\n                <tr>\r\n                    <th>Date</th>\r\n                    <th>Sum</th>\r\n                    <th>Category</th>\r\n                    <th>Source</th>\r\n                    <th></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr>\r\n                    <td>"
-    + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
-    + "</td>\r\n                    <td>"
-    + alias3(((helper = (helper = helpers.sum || (depth0 != null ? depth0.sum : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sum","hash":{},"data":data}) : helper)))
-    + "</td>\r\n                    <td>"
-    + alias3(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
-    + "</td>\r\n                    <td>"
-    + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
-    + "</td>\r\n                    <td>X</td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>";
+    + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</h1>\r\n        </div>\r\n    </div>\r\n\r\n</div>";
 },"useData":true});
 
 this["JST"]["ForgotPasswordPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -64,6 +68,24 @@ this["JST"]["HomePage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],
     + "</h3>\r\n        <hr>\r\n    </div>\r\n</div>\r\n<div class=\"row home-page-content\">\r\n    <div class=\"col-md-4 text-center\">\r\n        <img src=\"http://placehold.it/250x250\" alt=\"img\">\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.\r\n            Atque impedit ipsam libero nobis rem tempore? Debitis deserunt\r\n            dicta eius nam officiis quaerat quod sapiente. Debitis\r\n            deleniti eius fugiat id inventore nam necessitatibus, nisi\r\n            omnis provident quas quasi quidem rerum sunt temporibus voluptate!\r\n            Aspernatur eos molestias quasi sunt? Doloribus earum eius eum molestiae\r\n            odio quasi, quibusdam repellat repudiandae velit veritatis. Adipisci\r\n            asperiores deleniti distinctio eligendi iste iure laudantium nihil odit,\r\n            quaerat reprehenderit sequi vel, voluptas. Animi dicta dignissimos dolorem fugiat,\r\n            fugit, ipsum magni minus non omnis perspiciatis praesentium\r\n            recusandae reprehenderit unde? Ab consequatur consequuntur,\r\n            ducimus error et expedita libero molestias mollitia, obcaecati\r\n            recusandae veniam vero! Accusantium ad aliquam aspernatur assumenda\r\n            aut autem consequuntur corporis, cum delectus, deserunt distinctio dolorem\r\n            dolores ducimus eligendi excepturi facere facilis harum id itaque iusto nam\r\n            nisi nulla, odio omnis quasi qui quis quisquam sequi vero voluptatum? Accusamus\r\n            distinctio magnam rem sint voluptas? Maiores nisi provident rerum. Lorem ipsum dolor\r\n            sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis\r\n            rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente.</p>\r\n    </div>\r\n    <div class=\"col-md-4 text-center\">\r\n        <img src=\"http://placehold.it/250x250\" alt=\"img\">\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.\r\n            Atque impedit ipsam libero nobis rem tempore? Debitis deserunt\r\n            dicta eius nam officiis quaerat quod sapiente. Debitis\r\n            deleniti eius fugiat id inventore nam necessitatibus, nisi\r\n            omnis provident quas quasi quidem rerum sunt temporibus voluptate!\r\n            Aspernatur eos molestias quasi sunt? Doloribus earum eius eum molestiae\r\n            odio quasi, quibusdam repellat repudiandae velit veritatis. Adipisci\r\n            asperiores deleniti distinctio eligendi iste iure laudantium nihil odit,\r\n            quaerat reprehenderit sequi vel, voluptas. Animi dicta dignissimos dolorem fugiat,\r\n            fugit, ipsum magni minus non omnis perspiciatis praesentium\r\n            recusandae reprehenderit unde? Ab consequatur consequuntur,\r\n            ducimus error et expedita libero molestias mollitia, obcaecati\r\n            recusandae veniam vero! Accusantium ad aliquam aspernatur assumenda\r\n            aut autem consequuntur corporis, cum delectus, deserunt distinctio dolorem\r\n            dolores ducimus eligendi excepturi facere facilis harum id itaque iusto nam\r\n            nisi nulla, odio omnis quasi qui quis quisquam sequi vero voluptatum? Accusamus\r\n            distinctio magnam rem sint voluptas? Maiores nisi provident rerum. Lorem ipsum dolor\r\n            sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis\r\n            rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente.</p>\r\n    </div>\r\n    <div class=\"col-md-4 text-center\">\r\n        <img src=\"http://placehold.it/250x250\" alt=\"img\">\r\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.\r\n            Atque impedit ipsam libero nobis rem tempore? Debitis deserunt\r\n            dicta eius nam officiis quaerat quod sapiente. Debitis\r\n            deleniti eius fugiat id inventore nam necessitatibus, nisi\r\n            omnis provident quas quasi quidem rerum sunt temporibus voluptate!\r\n            Aspernatur eos molestias quasi sunt? Doloribus earum eius eum molestiae\r\n            odio quasi, quibusdam repellat repudiandae velit veritatis. Adipisci\r\n            asperiores deleniti distinctio eligendi iste iure laudantium nihil odit,\r\n            quaerat reprehenderit sequi vel, voluptas. Animi dicta dignissimos dolorem fugiat,\r\n            fugit, ipsum magni minus non omnis perspiciatis praesentium\r\n            recusandae reprehenderit unde? Ab consequatur consequuntur,\r\n            ducimus error et expedita libero molestias mollitia, obcaecati\r\n            recusandae veniam vero! Accusantium ad aliquam aspernatur assumenda\r\n            aut autem consequuntur corporis, cum delectus, deserunt distinctio dolorem\r\n            dolores ducimus eligendi excepturi facere facilis harum id itaque iusto nam\r\n            nisi nulla, odio omnis quasi qui quis quisquam sequi vero voluptatum? Accusamus\r\n            distinctio magnam rem sint voluptas? Maiores nisi provident rerum. Lorem ipsum dolor\r\n            sit amet, consectetur adipisicing elit. Atque impedit ipsam libero nobis\r\n            rem tempore? Debitis deserunt dicta eius nam officiis quaerat quod sapiente.</p>\r\n    </div>\r\n</div>";
 },"useData":true});
 
+this["JST"]["Item"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<tr>\r\n    <td>"
+    + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
+    + "</td>\r\n    <td>"
+    + alias3(((helper = (helper = helpers.sum || (depth0 != null ? depth0.sum : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sum","hash":{},"data":data}) : helper)))
+    + "</td>\r\n    <td>"
+    + alias3(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
+    + "</td>\r\n    <td>"
+    + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
+    + "</td>\r\n    <td><i class=\"fa fa-trash-o\"></i></td>\r\n</tr>";
+},"useData":true});
+
+this["JST"]["Items"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "\r\n    <table class=\"table table-striped table-hover table-bordered\">\r\n        <thead>\r\n        <tr>\r\n            <th>Date</th>\r\n            <th>Sum</th>\r\n            <th>Category</th>\r\n            <th>Source</th>\r\n            <th>Actions</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody id=\"items-container\">\r\n\r\n        </tbody>\r\n    </table>\r\n";
+},"useData":true});
+
 this["JST"]["LoginPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -81,9 +103,7 @@ this["JST"]["NotFoundPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.
 },"useData":true});
 
 this["JST"]["PageTitle"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var helper;
-
-  return this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)));
+    return "";
 },"useData":true});
 
 this["JST"]["RegistrationPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

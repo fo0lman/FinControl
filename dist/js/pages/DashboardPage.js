@@ -1,7 +1,8 @@
 define([
     'pages/AbstractPage',
-    'views/pages/DashboardPage'
-], function (AbstractPage, DashboardPageView) {
+    'views/pages/DashboardPage',
+    'views/BalanceView'
+], function (AbstractPage, DashboardPageView, BalanceView) {
     "use strict";
 
     var DashboardPage;
@@ -13,6 +14,10 @@ define([
                 title: this.title
             });
             this.components.push(dashboardPageView);
+
+            var balanceView = new BalanceView();
+            this.components.push(balanceView);
+
         }
     });
     return DashboardPage;
