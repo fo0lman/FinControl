@@ -8,8 +8,16 @@ define([
     function getBalance () {
         if (!balance) {
             balance = new BalanceModel();
-            return balance;
         }
+        return balance;
     }
-    return getBalance;
+
+    function clearBalance() {
+        balance = null;
+    }
+
+    return {
+        getBalance: getBalance,
+        clearBalance: clearBalance
+    };
 });

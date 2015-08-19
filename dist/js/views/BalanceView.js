@@ -3,21 +3,25 @@ define([
     'handlebars',
     'templates',
 
-    'models/balance/getBalanceModel'
-], function (Backbone, Handlebars, JST, getBalanceModel) {
+    'models/balance/BalanceControl'
+], function (Backbone, Handlebars, JST, BalanceControl) {
     "use strict";
 
     var BalanceView;
     BalanceView = Backbone.View.extend({
         className: "row",
-        model: getBalanceModel(),
         initialize: function () {
-            this.listenTo(this.model, 'sync', this.render)
+            this.getBalanceModel();
+            this.listenTo(this.model, 'sync', this.render);
+            this.listenTo(this, 'change', this.render);
         },
         render: function() {
             this.template = Handlebars.compile(JST.Balance(this.model.toJSON()));
             this.$el.html(this.template());
             return this;
+        },
+        getBalanceModel: function() {
+            this.model = BalanceControl.getBalance();
         }
     });
 

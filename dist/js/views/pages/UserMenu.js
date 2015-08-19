@@ -2,8 +2,9 @@ define([
     'backbone',
     'handlebars',
     'templates',
-    'modules/authorization'
-], function (Backbone, Handlebars, JST, UserModule) {
+    'modules/authorization',
+    'models/balance/BalanceControl'
+], function (Backbone, Handlebars, JST, UserModule, BalanceControl) {
     "use strict";
 
     var UserMenuView;
@@ -24,6 +25,7 @@ define([
             return this;
         },
         logOutUser: function () {
+            BalanceControl.clearBalance();
             UserModule.logoutUser();
         }
     });
