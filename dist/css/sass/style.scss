@@ -1,11 +1,19 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   padding-top: 50px;
+  margin-bottom: 50px;
 }
 footer {
-  background-color: #3a3a3a;
-  color: #fff6de;
-  padding: 25px 40px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px 40px;
   margin: 40px 0 0;
+  color: #fff6de;
+  background-color: #3a3a3a;
 }
 .home-page-content img {
   margin: 20px;
