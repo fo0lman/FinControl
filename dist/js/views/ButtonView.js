@@ -28,7 +28,7 @@ define([
             itemCollection.create({
                 name: this.model.attributes.name,
                 category: this.model.attributes.category,
-                date: this.model.attributes.date,
+                date: (new Date()).getTime(),
                 source: this.model.attributes.source,
                 sum: this.model.attributes.sum
             });

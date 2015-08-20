@@ -12,7 +12,6 @@ define([
         },
         defaults: {
             name: 'New Button',
-            date: (new Date()).getTime(),
             sum: '0',
             category: 'Other',
             source: 'Cash'

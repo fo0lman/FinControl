@@ -40,7 +40,6 @@ define([
             window.addFavoriteButton = function (buttonName) {
                 buttonCollection.create({
                     "category" : "Rent",
-                    "date" : (new Date()).getTime(),
                     "name" : buttonName,
                     "source" : "VISA",
                     "sum" : "-2000"
