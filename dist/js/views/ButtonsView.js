@@ -3,44 +3,36 @@ define([
     'handlebars',
     'templates',
 
-    'views/ButtonView',
-    'collections/ItemsCollection'
-], function (Backbone, Handlebars, JST, ButtonView, ItemsCollection) {
+    'views/AddButtonView',
+    'views/ButtonView'
+], function (Backbone, Handlebars, JST, AddButtonView, ButtonView) {
     "use strict";
 
     var ButtonsView;
     ButtonsView = Backbone.View.extend({
-        tagName: 'table',
-        id: "items-container",
-
-        events: {
-            'click .button.add': 'addButtonView'
-        },
-
-        addButtonView: function () {
-            ItemsCollection.add(this.collection, 'add', this.renderButtons);
-            ItemsCollection.on("add", function( ) {
-              alert("«" + ship.get("name") + "» прямо по курсу!");
-            });
-        },
-
+        className: 'row',
         initialize: function () {
-            this.listenTo(this.collection, 'add', this.renderButtons);
+            this.listenTo(this.collection, 'sync update', this.render);
         },
-
-        renderButtons: function (button) {
+        renderAddButton: function () {
+            var addButtonView = new AddButtonView();
+            this.$('#add-button-container').append(addButtonView.render().$el);
+        },
+        renderButton: function (button) {
             var buttonView = new ButtonView({
                 model: button
             });
-            this.$('#items-container').append(ButtonView.render().$el);
+            this.$('#buttons-container').append(buttonView.render().$el);
         },
         render: function() {
-            this.template = Handlebars.compile(JST.Items());
+            this.template = Handlebars.compile(JST.Buttons());
             this.$el.html(this.template());
-            this.collection.each(this.renderButtons, this);
+            this.renderAddButton();
+            this.collection.each(this.renderButton, this);
             return this;
         }
+
     });
 
-    return ItemsView;
+    return ButtonsView;
 });

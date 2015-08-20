@@ -1,32 +1,38 @@
 define([
     'backbone',
     'handlebars',
-    'templates'
-], function (Backbone, Handlebars, JST) {
+    'templates',
+
+    'collections/ItemsCollection'
+], function (Backbone, Handlebars, JST, ItemsCollection) {
     "use strict";
 
     var ButtonView;
     ButtonView = Backbone.View.extend({
-        tagName: 'td',
+        tagName: 'button',
+        className: 'btn btn-primary',
+        attributes: {
+            type: 'button'
+        },
         events: {
-            'click .but-add': 'addStringTable'
+            'click span': 'addItem'
         },
-
-        initialize: function () {
-            this.render();
-        },
-
         render: function() {
-            this.template = Handlebars.compile(JST.Item(this.model.toJSON()));
+            this.template = Handlebars.compile(JST.Button(this.model.toJSON()));
             this.$el.append(this.template());
             return this;
         },
-
-        addStringTable: function (event) {
+        addItem: function (event) {
             event.preventDefault();
-            //Добавляем строки в таблицу
+            var itemCollection = new ItemsCollection();
+            itemCollection.create({
+                name: this.model.attributes.name,
+                category: this.model.attributes.category,
+                date: this.model.attributes.date,
+                source: this.model.attributes.source,
+                sum: this.model.attributes.sum
+            });
         }
-
     });
 
     return ButtonView;

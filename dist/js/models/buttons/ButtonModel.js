@@ -10,14 +10,8 @@ define([
                 console.log('Button Model', eventName)
             });
         },
-
-        validate: function( attrs ) {
-            if (attrs.sum = 0) {
-                return 'Summa > 0';
-            }
-        },
-
         defaults: {
+            name: 'New Button',
             date: (new Date()).getTime(),
             sum: '0',
             category: 'Other',

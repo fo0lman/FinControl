@@ -24,6 +24,16 @@
           ".validate": "newData.hasChildren(['category', 'date', 'source', 'sum']) && newData.child('category').isString() && newData.child('date').isNumber() && newData.child('source').isString() && newData.child('sum').isString()"
         }
       }
+    
+    },
+    "buttons": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid",
+        ".write": "auth != null && auth.uid == $uid",
+        "$item_id": {
+          ".validate": "newData.hasChildren(['name', 'category', 'date', 'source', 'sum']) && newData.child('name').isString() && newData.child('category').isString() && newData.child('date').isNumber() && newData.child('source').isString() && newData.child('sum').isString()"
+        }
+      }
     }
   }
 }

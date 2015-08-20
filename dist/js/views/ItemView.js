@@ -12,7 +12,6 @@ define([
             'click .fa-trash-o': 'deleteItem'
         },
         initialize: function () {
-            this.listenTo(this.model, 'sync', this.render);
             this.listenTo(this.model, 'remove', this.remove);
         },
         render: function() {

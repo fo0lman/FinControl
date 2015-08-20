@@ -1,11 +1,15 @@
 define([
     'pages/AbstractPage',
+
     'views/pages/DashboardPage',
     'views/BalanceView',
     'views/ItemsView',
+    'views/ButtonsView',
+
     'collections/ItemsCollection',
-    'views/pages/AddItemPopup'
-], function (AbstractPage, DashboardPageView, BalanceView, ItemsView, ItemsCollection, AddItemPopup) {
+    'collections/ButtonsCollection'
+
+], function (AbstractPage, DashboardPageView, BalanceView, ItemsView, ButtonsView, ItemsCollection, ButtonsCollection) {
     "use strict";
 
     var DashboardPage;
@@ -21,27 +25,27 @@ define([
             var balanceView = new BalanceView();
             this.components.push(balanceView);
 
+            var buttonCollection = new ButtonsCollection();
+            var buttonsView = new ButtonsView({
+                collection: buttonCollection
+            });
+            this.components.push(buttonsView);
+
+            var itemCollection = new ItemsCollection();
             var itemsView = new ItemsView({
-                collection: new ItemsCollection()
+                collection: itemCollection
             });
             this.components.push(itemsView);
 
-
-            window.addITEM = function () {
-                var addIt = new AddItemPopup();
-                addIt.on('addform:submitted', function (formData) {
-                    var item = new ItemsCollection();
-                    item.create(formData);
-                });
+            window.addFavoriteButton = function (buttonName) {
+                buttonCollection.create({
+                    "category" : "Rent",
+                    "date" : (new Date()).getTime(),
+                    "name" : buttonName,
+                    "source" : "VISA",
+                    "sum" : "-2000"
+                })
             };
-
-            //var addIt = new AddItemPopup();
-            //addIt.on('addform:submitted', function (formData) {
-            //    var item = new ItemsCollection();
-            //    item.create(formData);
-            //});
-
-
         }
     });
     return DashboardPage;

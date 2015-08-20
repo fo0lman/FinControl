@@ -1,26 +1,29 @@
 define([
     'backbone',
     'backbonefire',
-    'models/items/ButtonModel',
-    'models/items/ItemModel'
-], function (Backbone, bbfire, ButtonModel, ItemModel) {
+    'modules/authorization',
+    'models/buttons/ButtonModel'
+
+], function (Backbone, bbfire, AuthModule, ButtonModel) {
     "use strict";
 
     var ButtonsCollection;
 
     ButtonsCollection = Backbone.Firebase.Collection.extend({
         model: ButtonModel,
-
-        comparator: 'date',
-
         initialize: function () {
-           var self = this;
-
+            this.setUrl();
             this.listenTo(this, 'all', function (eventName) {
                 console.info('Buttons Collection', eventName);
             });
-        }      
+        },
+        setUrl: function () {
+            var uid = AuthModule.getUserData().uid,
+                ref = AuthModule.rootRef;
+            this.url = ref.child('buttons').child(uid);
+        }
     });
 
     return ButtonsCollection;
+
 });
