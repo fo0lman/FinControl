@@ -3,8 +3,8 @@ define([
     'handlebars',
     'templates',
 
-    'collections/ItemsCollection'
-], function (Backbone, Handlebars, JST, ItemsCollection) {
+    'collections/ItemsControl'
+], function (Backbone, Handlebars, JST, ItemsControl) {
     "use strict";
 
     var ButtonView;
@@ -24,7 +24,7 @@ define([
         },
         addItem: function (event) {
             event.preventDefault();
-            var itemCollection = new ItemsCollection();
+            var itemCollection = new ItemsControl.getItemsCollection();
             itemCollection.create({
                 name: this.model.attributes.name,
                 category: this.model.attributes.category,

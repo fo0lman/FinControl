@@ -1,10 +1,8 @@
 define([
     'backbone',
     'handlebars',
-    'templates',
-
-    'collections/ItemsCollection'
-], function (Backbone, Handlebars, JST, ItemsCollection) {
+    'templates'
+], function (Backbone, Handlebars, JST) {
     "use strict";
 
     var AddItemPopupView;

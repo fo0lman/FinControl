@@ -3,9 +3,9 @@ define([
     'handlebars',
     'templates',
 
-    'collections/ItemsCollection',
+    'collections/ItemsControl',
     'views/pages/AddItemPopup'
-], function (Backbone, Handlebars, JST, ItemsCollection, AddItemPopup) {
+], function (Backbone, Handlebars, JST, ItemsControl, AddItemPopup) {
     "use strict";
 
     var AddButtonView;
@@ -24,7 +24,7 @@ define([
 
             var addIt = new AddItemPopup();
             addIt.on('addform:submitted', function (formData) {
-                var itemCollection = new ItemsCollection();
+                var itemCollection = new ItemsControl.getItemsCollection();
                 itemCollection.create(formData);
             });
         }
