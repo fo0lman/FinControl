@@ -11,7 +11,9 @@ define([
     ItemsCollection = Backbone.Firebase.Collection.extend({
         model: ItemModel,
 
-        comparator: 'date',
+        comparator: function (m) {
+            return -m.get('date');
+        },
         initialize: function () {
             this.setUrl();
             this.listenTo(this, 'all', function (eventName) {
