@@ -48,6 +48,10 @@ this["JST"]["Buttons"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
     return "<form class=\"form-inline\">\r\n    <div class=\"col-md-1\">\r\n        <div id=\"add-button-container\">\r\n\r\n        </div>\r\n    </div>\r\n    <div class=\"col-md-11\">\r\n        <div class=\"form-group\">\r\n            <label>Favorite:</label>\r\n            <div class=\"btn-group\" id=\"buttons-container\">\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n</form>";
 },"useData":true});
 
+this["JST"]["Chart"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"col-md-10 col-md-offset-2\">\r\n    <canvas id=\"myChart\" width=\"400\" height=\"400\" center-block></canvas>\r\n</div>";
+},"useData":true});
+
 this["JST"]["DashboardPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -130,9 +134,9 @@ this["JST"]["RegistrationPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-b
 this["JST"]["ReportsPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"row\">\r\n    <div class=\"col-md-8 col-md-offset-2\">\r\n        <h1>"
+  return "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <form class=\"form-inline\">\r\n      <h3>"
     + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</h1>\r\n    </div>\r\n</div>";
+    + "</h3>\r\n      <hr>\r\n      <div class=\"row\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputEmail3\">Chart type:</label>\r\n            <label class=\"radio-inline\">\r\n              <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked> pie\r\n            </label>\r\n            <label class=\"radio-inline\">\r\n              <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"option2\"> line\r\n            </label>\r\n        </div>\r\n      </div>\r\n      <div class=\"row\">\r\n        <div class=\"form-group\">\r\n          <label for=\"inputDateBegin\">from</label>\r\n            <input type=\"date\" class=\"form-control\" id=\"inputDateBegin\">\r\n          <label for=\"inputDateEnd\">to</label>\r\n            <input type=\"date\" class=\"form-control\" id=\"inputDateEnd\">\r\n            <select class=\"form-control\">\r\n              <option>income</option>\r\n              <option>costs</option>\r\n            </select>\r\n            <button type=\"submit\" class=\"btn btn-primary\">Filter</button>\r\n        </div>\r\n      </div>\r\n      <hr>\r\n    </form>\r\n  </div>\r\n</div>";
 },"useData":true});
 
 this["JST"]["SettingsPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

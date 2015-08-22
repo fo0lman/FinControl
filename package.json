@@ -11,13 +11,13 @@
     "url": "git+https://github.com/fo0lman/FinControl.git"
   },
   "keywords": [
-    "finanse",
-    "personal",
-    "money",
-    "frontend",
     "LevelUp",
+    "backbone",
+    "finanse",
+    "frontend",
     "javascript",
-    "backbone"
+    "money",
+    "personal"
   ],
   "author": "FE-14-1 LevelUp",
   "license": "MIT",
@@ -41,6 +41,7 @@
   "dependencies": {
     "backbone": "^1.2.1",
     "bootstrap": "^3.3.5",
+    "chart.js": "^1.0.2",
     "firebase": "^2.2.8",
     "handlebars": "^3.0.3",
     "jquery": "^2.1.4",

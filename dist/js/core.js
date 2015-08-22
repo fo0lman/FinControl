@@ -10,7 +10,8 @@ requirejs.config({
         handlebars: '../../node_modules/handlebars/dist/handlebars.amd',
         bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min',
         templates: 'templates/jst',
-        spinner: '../../node_modules/spin/dist/spin'
+        spinner: '../../node_modules/spin/dist/spin',
+        chartjs: '../../node_modules/chart.js/Chart.min'
     },
     shim: {
         'backbone': {

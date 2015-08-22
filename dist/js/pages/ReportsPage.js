@@ -1,7 +1,8 @@
 define([
     'pages/AbstractPage',
-    'views/pages/ReportsPage'
-], function (AbstractPage, ReportsPageView) {
+    'views/pages/ReportsPage',
+    'views/ChartView'
+], function (AbstractPage, ReportsPageView, ChartView) {
     "use strict";
 
     var ReportsPage;
@@ -13,6 +14,9 @@ define([
                 title: this.title
             });
             this.components.push(reportsPageView);
+
+            var myChartView = new ChartView();
+            this.components.push(myChartView);
         }
     });
     return ReportsPage;
