@@ -12,6 +12,8 @@
   ],
   "dependencies": {
     "backbonefire": "~0.5.1",
-    "firebase": "~2.2.9"
+    "firebase": "~2.2.9",
+    "d3": "3.5.0",
+    "c3": "~0.4.10"
   }
 }

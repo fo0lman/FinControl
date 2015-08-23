@@ -11,7 +11,9 @@ requirejs.config({
         bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min',
         templates: 'templates/jst',
         spinner: '../../node_modules/spin/dist/spin',
-        chartjs: '../../node_modules/chart.js/Chart.min'
+        chartjs: '../../node_modules/chart.js/Chart.min',
+        d3: '../../bower_components/d3/d3.min',
+        c3: '../../bower_components/c3/c3.min'
     },
     shim: {
         'backbone': {

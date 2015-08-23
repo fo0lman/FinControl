@@ -1,8 +1,9 @@
 define([
     'views/pages/AbstractPage',
     'handlebars',
-    'templates'
-], function(AbstractPage, Handlebars, JST) {
+    'templates',
+    'c3'
+], function(AbstractPage, Handlebars, JST, c3) {
     "use strict";
 
     var ReportsPageView;
@@ -16,58 +17,42 @@ define([
                 title: this.title
             }))
         },
-        filter: function( event ) {
+        filter: function(event) {
             event.preventDefault();
-            var data = [{
-                value: 300,
-                color: "#F7464A",
-                highlight: "#FF5A5E",
-                label: "Red"
-            }, {
-                value: 50,
-                color: "#46BFBD",
-                highlight: "#5AD3D1",
-                label: "Green"
-            }, {
-                value: 100,
-                color: "#FDB45C",
-                highlight: "#FFC870",
-                label: "Yellow"
-            }];
-
-            var options = {
-                //Boolean - Whether we should show a stroke on each segment
-                segmentShowStroke: true,
-
-                //String - The colour of each segment stroke
-                segmentStrokeColor: "#fff",
-
-                //Number - The width of each segment stroke
-                segmentStrokeWidth: 2,
-
-                //Number - The percentage of the chart that we cut out of the middle
-                percentageInnerCutout: 50, // This is 0 for Pie charts
-
-                //Number - Amount of animation steps
-                animationSteps: 100,
-
-                //String - Animation easing effect
-                animationEasing: "easeOutBounce",
-
-                //Boolean - Whether we animate the rotation of the Doughnut
-                animateRotate: true,
-
-                //Boolean - Whether we animate scaling the Doughnut from the centre
-                animateScale: false,
-
-                //String - A legend template
-                legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
-
-            }
 
 
-            var ctx = $('#myChart').get(0).getContext('2d');
-            var myNewChart = new Chart(ctx).Pie(data, options);
+
+
+            var chart = c3.generate({
+                data: {
+                    x: 'x',
+                    //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
+                    columns: [
+                        ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
+                        //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
+                        ['data1', 30, 200, 100, 400, 150, 250],
+                        ['data2', 130, 340, 200, 500, 250, 350]
+                    ]
+                },
+                axis: {
+                    x: {
+                        type: 'timeseries',
+                        tick: {
+                            format: '%Y-%m-%d'
+                        }
+                    }
+                }
+            });
+
+            setTimeout(function() {
+                chart.load({
+                    columns: [
+                        ['data3', 400, 500, 450, 700, 600, 500]
+                    ]
+                });
+            }, 1000);
+
+
         }
     });
 

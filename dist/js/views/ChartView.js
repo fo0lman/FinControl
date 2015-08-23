@@ -1,9 +1,8 @@
 define([
     'backbone',
     'handlebars',
-    'templates',
-    'chartjs'
-], function(Backbone, Handlebars, JST, ChartJS) {
+    'templates'
+], function(Backbone, Handlebars, JST) {
     "use strict";
 
     var ChartView;
