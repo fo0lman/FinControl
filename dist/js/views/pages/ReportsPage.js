@@ -3,7 +3,7 @@ define([
     'handlebars',
     'templates',
     'c3',
-    'collections/ItemsControl'
+    'collections/items/ItemsControl'
 ], function(AbstractPage, Handlebars, JST, c3, ItemsControl) {
     "use strict";
 
