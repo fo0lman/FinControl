@@ -10,7 +10,7 @@ requirejs.config({
         handlebars: '../../node_modules/handlebars/dist/handlebars.amd',
         bootstrap: '../../node_modules/bootstrap/dist/js/bootstrap.min',
         templates: 'templates/jst',
-        spinner: '../../node_modules/spin/dist/spin',
+        spinner: '../../node_modules/spin.js/spin',
         chartjs: '../../node_modules/chart.js/Chart.min',
         d3: '../../bower_components/d3/d3.min',
         c3: '../../bower_components/c3/c3.min'

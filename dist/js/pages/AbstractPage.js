@@ -1,8 +1,7 @@
 define([
     'backbone',
-    'views/pages/UserMenu',
-    'modules/spinner'
-], function (Backbone, UserMenuView, Spinner) {
+    'views/pages/UserMenu'
+], function (Backbone, UserMenuView) {
 
     var AbstractPage;
     AbstractPage = Backbone.View.extend({
@@ -10,7 +9,6 @@ define([
             document.querySelector('title').firstChild.nodeValue = title;
         },
         initialize: function () {
-
             this.components = [];
 
             this.listenTo(this, 'removePage', this.removePage);
@@ -18,6 +16,7 @@ define([
             $('.js-page').append(this.el);
 
             this.usermenu = (new UserMenuView()).render();
+
         },
         render: function () {
             this.$el.append(this.renderComponents());

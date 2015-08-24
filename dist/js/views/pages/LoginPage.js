@@ -24,13 +24,15 @@ define([
 
         login: function( event ) {
             var email,
-                password;
+                password,
+                rememberMe;
 
             email = this.$el.find('#inputEmail3').val();
             password = this.$el.find('#inputPassword3').val();
+            rememberMe = this.$el.find('[type=checkbox]').prop('checked');
 
             event.preventDefault();
-            UserModule.authUserEmail(email, password);
+            UserModule.authUserEmail(email, password, rememberMe);
         },
         loginUserGoogle: function( event ) {
             event.preventDefault();

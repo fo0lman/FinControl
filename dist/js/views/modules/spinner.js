@@ -1,36 +1,36 @@
 define([
     'backbone',
     'spinner'
-], function (Backbone, spin) {
+], function (Backbone, Spinner) {
     "use strict";
 
     var SpinnerView;
     SpinnerView = Backbone.View.extend({
         className: "wait-spinner clearfix",
         initialize: function () {
-            _.bindAll(this, "render");
 
             this.options = {
-                lines: 13,
-                length: 8,
-                width: 3,
-                radius: 10,
+                lines: 7,
+                length: 12,
+                width: 4,
+                radius: 8,
                 corners: 1,
                 rotate: 0,
-                color: "#000",
+                color: "#337ab7",
                 speed: 1,
                 trail: 45,
-                shadow: false,
-                hwaccel: false,
                 className: "spinner",
                 zIndex: 2e9,
-                top: "auto",
-                left: "auto"
+                top: '50%',
+                left: '50%',
+                shadow: false,
+                hwaccel: false,
+                position: 'absolute'
             };
-
+            $('body').append(this.render().el);
         },
         render: function () {
-            Spinner(this.options).spin(this.el);
+            new Spinner(this.options).spin(this.el);
             return this;
         },
         removeSpinner: function () {

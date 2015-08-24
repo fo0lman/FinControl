@@ -3,7 +3,7 @@ define([
     'handlebars',
     'templates',
 
-    'collections/ItemsControl',
+    'collections/items/ItemsControl',
     'views/pages/AddItemPopup'
 ], function (Backbone, Handlebars, JST, ItemsControl, AddItemPopup) {
     "use strict";
