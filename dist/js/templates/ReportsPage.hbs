@@ -7,10 +7,10 @@
         <div class="form-group">
           <label for="inputEmail3">Chart type:</label>
             <label class="radio-inline">
-              <input type="radio" name="optionsRadios" id="optionsRadios1" value="pie" checked> pie
+              <input class="chartType" type="radio" name="optionsRadios" id="optionsRadios1" value="pie" checked> pie
             </label>
             <label class="radio-inline">
-              <input type="radio" name="optionsRadios" id="optionsRadios2" value="line"> line
+              <input class="chartType" type="radio" name="optionsRadios" id="optionsRadios2" value="line"> line
             </label>
         </div>
       </div>
@@ -20,7 +20,8 @@
             <input type="date" class="form-control" id="inputDateBegin">
           <label for="inputDateEnd">to</label>
             <input type="date" class="form-control" id="inputDateEnd">
-            <select class="form-control">
+            <select class="form-control itemType">
+              <option selected>all</option>
               <option>income</option>
               <option>costs</option>
             </select>

@@ -2,8 +2,9 @@ define([
     'views/pages/AbstractPage',
     'handlebars',
     'templates',
-    'c3'
-], function(AbstractPage, Handlebars, JST, c3) {
+    'c3',
+    'collections/ItemsControl'
+], function(AbstractPage, Handlebars, JST, c3, ItemsControl) {
     "use strict";
 
     var ReportsPageView;
@@ -15,44 +16,45 @@ define([
         initialize: function() {
             this.template = Handlebars.compile(JST.ReportsPage({
                 title: this.title
-            }))
+            }));
+            this.collection = ItemsControl.getItemsCollection();
         },
         filter: function(event) {
             event.preventDefault();
 
+            var options = this.getOptionsForChart();
+            var myData = this.collection.getDataForChart( options );
 
+            if (options.chartType === 'line') {
 
-
-            var chart = c3.generate({
-                data: {
-                    x: 'x',
-                    //        xFormat: '%Y%m%d', // 'xFormat' can be used as custom format of 'x'
-                    columns: [
-                        ['x', '2013-01-01', '2013-01-02', '2013-01-03', '2013-01-04', '2013-01-05', '2013-01-06'],
-                        //            ['x', '20130101', '20130102', '20130103', '20130104', '20130105', '20130106'],
-                        ['data1', 30, 200, 100, 400, 150, 250],
-                        ['data2', 130, 340, 200, 500, 250, 350]
-                    ]
-                },
-                axis: {
-                    x: {
-                        type: 'timeseries',
-                        tick: {
-                            format: '%Y-%m-%d'
-                        }
+            } else {
+                var chart = c3.generate({
+                    data: {
+                        columns: myData, 
+                        type: 'pie'
                     }
-                }
-            });
-
-            setTimeout(function() {
-                chart.load({
-                    columns: [
-                        ['data3', 400, 500, 450, 700, 600, 500]
-                    ]
                 });
-            }, 1000);
+            }
+        },
+        getOptionsForChart: function () {
+            return {
+                chartType: $('.chartType:checked').val(),
+                dateStart: this.toTimestamp( $('#inputDateBegin').val(), 'start' ),
+                dateEnd: this.toTimestamp( $('#inputDateEnd').val(), 'end' ),
+                itemType: $('.itemType').val()
+            };
+        },
+        toTimestamp: function (strDate, strParam) {
 
+            var date = new Date( Date.parse(strDate) );
 
+            if (strParam === 'start') {
+                date.setHours(0, 0, 0, 0);
+            } else {
+                date.setHours(23, 59, 59, 999);
+            }
+
+            return Date.parse(date);
         }
     });
 

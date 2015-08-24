@@ -31,7 +31,7 @@ define([
             });
             this.components.push(buttonsView);
 
-            var itemCollection = new ItemsControl.getItemsCollection();
+            var itemCollection = ItemsControl.getItemsCollection();
             var itemsView = new ItemsView({
                 collection: itemCollection
             });
