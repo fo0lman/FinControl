@@ -3,7 +3,7 @@ define([
     'handlebars',
     'templates',
 
-    'collections/ItemsControl'
+    'collections/items/ItemsControl'
 ], function (Backbone, Handlebars, JST, ItemsControl) {
     "use strict";
 

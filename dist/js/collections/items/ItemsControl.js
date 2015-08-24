@@ -1,19 +1,19 @@
 define([
-    'collections/ItemsCollection'
+    'collections/items/ItemsCollection'
 ], function (ItemsCollection) {
     "use strict";
 
-    var collection;
+    var items;
 
     function getCollection () {
-        if (!collection) {
-            collection = new ItemsCollection();
+        if (!items) {
+            items = new ItemsCollection();
         }
-        return collection;
+        return items;
     }
 
     function clearCollection() {
-        collection = null;
+        items = null;
     }
 
     return {

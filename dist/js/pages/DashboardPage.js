@@ -6,10 +6,10 @@ define([
     'views/ItemsView',
     'views/ButtonsView',
 
-    'collections/ItemsControl',
-    'collections/ButtonsCollection'
+    'collections/items/ItemsControl',
+    'collections/buttons/ButtonsControl'
 
-], function (AbstractPage, DashboardPageView, BalanceView, ItemsView, ButtonsView, ItemsControl, ButtonsCollection) {
+], function (AbstractPage, DashboardPageView, BalanceView, ItemsView, ButtonsView, ItemsControl, ButtonsControl) {
     "use strict";
 
     var DashboardPage;
@@ -25,7 +25,7 @@ define([
             var balanceView = new BalanceView();
             this.components.push(balanceView);
 
-            var buttonCollection = new ButtonsCollection();
+            var buttonCollection = new ButtonsControl.getButtonsCollection();
             var buttonsView = new ButtonsView({
                 collection: buttonCollection
             });

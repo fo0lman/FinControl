@@ -13,7 +13,10 @@ define([
             password: password
         }, function(error, userData) {
             if (error) {
-                console.log("Error creating user:", error);
+                new Alert({
+                    type: 'alert',
+                    text: 'Error creating user: ' + error
+                });
             } else {
                 console.log("Successfully created user account with uid:", userData.uid);
                 AuthenticateUserEmail(email, password);
@@ -22,7 +25,7 @@ define([
     }
 
     function AuthenticateUserEmail(email, password, remember) {
-        var remember = remember || true;
+        var remember = remember || false;
         var rememberMe;
         rememberMe = (remember) ? 'default' : 'sessionOnly';
         rootRef.authWithPassword({
@@ -30,11 +33,10 @@ define([
             password: password
         }, function(error, authData) {
             if (error) {
-                console.log("Login Failed!", error);
                 new Alert({
                     type: 'alert',
                     text: 'Login Failed! ' + error
-                })
+                });
             } else {
                 console.log("Authenticated successfully with payload:", authData);
                 router.navigate('dashboard', true);
@@ -49,8 +51,16 @@ define([
             email: email
         }, function(error) {
             if (error === null) {
+                new Alert({
+                    type: 'ok',
+                    text: 'Password reset email sent successfully. Check your E-mail.'
+                });
                 console.log("Password reset email sent successfully");
             } else {
+                new Alert({
+                    type: 'alert',
+                    text: 'Error sending password reset email: ' + error
+                });
                 console.log("Error sending password reset email:", error);
             }
         });
@@ -63,8 +73,15 @@ define([
             newPassword: newPassword
         }, function(error) {
             if (error === null) {
-                console.log("Password changed successfully");
+                new Alert({
+                    type: 'ok',
+                    text: 'Password changed successfully'
+                });
             } else {
+                new Alert({
+                    type: 'alert',
+                    text: 'Error changing password: ' + error
+                });
                 console.log("Error changing password:", error);
             }
         });
@@ -84,7 +101,10 @@ define([
 
         rootRef.authWithOAuthPopup(provider, function(error, authData) {
             if (error) {
-                console.log("Login Failed!", error);
+                new Alert({
+                    type: 'alert',
+                    text: 'Login Failed! ' + error
+                });
             } else {
                 console.log("Authenticated successfully with payload:", authData);
                 router.navigate('dashboard', true);

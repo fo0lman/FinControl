@@ -31,7 +31,6 @@ define([
             this.collection.each(this.renderButton, this);
             return this;
         }
-
     });
 
     return ButtonsView;

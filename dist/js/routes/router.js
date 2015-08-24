@@ -102,4 +102,4 @@ define([
     });
 
     window.router = new Router();
-})
+});
