@@ -4,8 +4,8 @@ define([
     'templates',
 
     'views/ItemView',
-    'views/modules/spinner'
-], function (Backbone, Handlebars, JST, ItemView, SpinnerView) {
+    'modules/spinnerControl'
+], function (Backbone, Handlebars, JST, ItemView, spinner) {
     "use strict";
 
     var ItemsView;
@@ -37,16 +37,11 @@ define([
             }
         },
         spinnerStart: function () {
-            if (!window.spinner) {
-                this.spin = new SpinnerView();
-                window.spinner = true;
-            }
+            spinner.show(true);
         },
         spinnerStop: function () {
-            if (this.spin) {
-                var spin = this.spin;
-                spin.removeSpinner();
-            }
+            spinner.show(false);
+
         }
     });
 

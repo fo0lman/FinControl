@@ -5,8 +5,9 @@ define([
     'modules/authorization',
     'models/balance/BalanceControl',
     'collections/items/ItemsControl',
-    'collections/buttons/ButtonsControl'
-], function (Backbone, Handlebars, JST, UserModule, BalanceControl, ItemsControl, ButtonsControl) {
+    'collections/buttons/ButtonsControl',
+    'modules/spinnerControl'
+], function (Backbone, Handlebars, JST, UserModule, BalanceControl, ItemsControl, ButtonsControl, spinner) {
     "use strict";
 
     var UserMenuView;
@@ -30,7 +31,7 @@ define([
             BalanceControl.clearBalance();
             ItemsControl.clearItemsCollection();
             ButtonsControl.clearButtonsCollection();
-            delete window.spinner;
+            spinner.clear();
             UserModule.logoutUser();
         }
     });
