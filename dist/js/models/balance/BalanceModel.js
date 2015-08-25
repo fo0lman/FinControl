@@ -1,24 +1,10 @@
 define([
-    'backbone',
-    'backbonefire',
-    'modules/authorization'
-], function (Backbone, bbfire, AuthModule) {
+    'backbone'
+], function (Backbone) {
     "use strict";
 
     var BalanceModel;
-    BalanceModel = Backbone.Firebase.Model.extend({
-        initialize: function () {
-            this.setUrl();
-            this.listenTo(this, 'all', function (eventName) {
-                console.log('Balance Model', eventName)
-            });
-        },
-        setUrl: function () {
-            var uid = AuthModule.getUserData().uid,
-                ref = AuthModule.rootRef;
-
-            this.urlRoot = ref.child('balance').child(uid);
-        },
+    BalanceModel = Backbone.Model.extend({
         defaults: {
             count: 0
         }

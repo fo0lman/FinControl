@@ -31,9 +31,9 @@ this["JST"]["Alert"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"ma
 this["JST"]["Balance"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
-  return "<div class=\"col-md-5\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"form-group\">\r\n                <label for=\"inputBalance\">Balance:</label>\r\n                <input type=\"text\" class=\"form-control\" id=\"inputBalance\" value=\""
+  return "<div class=\"col-md-5\">\r\n        <form class=\"form-inline\">\r\n            <div class=\"form-group\">\r\n                <label for=\"inputBalance\">Balance:</label> "
     + this.escapeExpression(((helper = (helper = helpers.count || (depth0 != null ? depth0.count : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"count","hash":{},"data":data}) : helper)))
-    + "\">\r\n            </div>\r\n        </form>\r\n    </div>\r\n";
+    + "\r\n            </div>\r\n        </form>\r\n    </div>\r\n";
 },"useData":true});
 
 this["JST"]["Button"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
