@@ -3,8 +3,8 @@ define([
     'handlebars',
     'templates',
 
-    'views/ButtonView'
-], function (Backbone, Handlebars, JST, ButtonView) {
+    'views/FilterView'
+], function (Backbone, Handlebars, JST, FilterView) {
     "use strict";
 
     var FiltersView;
