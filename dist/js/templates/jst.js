@@ -60,6 +60,10 @@ this["JST"]["DashboardPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta
     + "</h1>\r\n</div>\r\n";
 },"useData":true});
 
+this["JST"]["Filter"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<form class=\"form-inline\">\r\n    <div class='col-md-6'> \r\n        <div class=\"form-group\">\r\n            <label for=\"inputDateFrom\" class=\"col-sm-2\">From:</label>\r\n            <div class=\"col-sm-4\">\r\n                <input type=\"date\" class=\"form-control\" id=\"inputDateFrom\" placeholder=\"Password\">\r\n            </div>\r\n        </div>\r\n        <div class=\"form-group\">\r\n            <label for=\"inputDateTo\" class=\"col-sm-2\">to:</label>\r\n            <div class=\"col-sm-4\">\r\n                <input type=\"date\" class=\"form-control\" id=\"inputDateTo\" placeholder=\"Password\">\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class='col-md-2'> \r\n        <div class=\"btn-group\">\r\n            <button type=\"button\" class=\"btn btn-default\">Type(+/-):</button>\r\n            <button type=\"button\" class=\"btn btn-default dropdown-toggle\" data-toggle=\"dropdown\" aria-haspopup=\"true\"       aria-expanded=\"false\">\r\n                <span class=\"caret\"></span>\r\n                <span class=\"sr-only\">Toggle Dropdown</span>\r\n            </button>\r\n            <ul class=\"dropdown-menu\">\r\n                <li><a href=\"#\">Type(+)</a></li>\r\n                <li><a href=\"#\">Type(-)</a></li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class='col-md-1'> \r\n        <div id=\"add-filter-container\">\r\n            <span>Filter</span>\r\n        </div>\r\n    </div>\r\n</form>";
+},"useData":true});
+
 this["JST"]["ForgotPasswordPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper;
 
@@ -145,6 +149,24 @@ this["JST"]["SettingsPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.
   return "<div class=\"row\">\r\n    <div class=\"col-md-8 col-md-offset-2\">\r\n        <h1>"
     + this.escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
     + "</h1>\r\n    </div>\r\n</div>";
+},"useData":true});
+
+this["JST"]["Statistic"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<td>"
+    + alias3(((helper = (helper = helpers.date || (depth0 != null ? depth0.date : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"date","hash":{},"data":data}) : helper)))
+    + "</td>\r\n<td>"
+    + alias3(((helper = (helper = helpers.sum || (depth0 != null ? depth0.sum : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"sum","hash":{},"data":data}) : helper)))
+    + "</td>\r\n<td>"
+    + alias3(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
+    + "</td>\r\n<td>"
+    + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
+    + "</td>";
+},"useData":true});
+
+this["JST"]["Statistics"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"panel panel-default\">\r\n    <table class=\"table table-hover table-bordered\">\r\n        <thead>\r\n        <tr class=\"active\">\r\n            <th>Date</th>\r\n            <th>Sum</th>\r\n            <th>Category</th>\r\n            <th>Source</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody id=\"filters-container\">\r\n\r\n        </tbody>\r\n    </table>\r\n</div>";
 },"useData":true});
 
 this["JST"]["StatisticsPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

@@ -7,7 +7,7 @@ define([
 
     var StatisticsPageView;
     StatisticsPageView = AbstractPage.extend({
-        title: 'Statistics Page',
+        title: 'Statistics',
         initialize: function() {
             this.template = Handlebars.compile(JST.StatisticsPage({title: this.title}))
         }
