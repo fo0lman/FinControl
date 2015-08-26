@@ -1,3 +1,17 @@
+/**
+ * A module that returns ItemCollection class
+ * @module collections/items/ItemCollection
+ *
+ * @example
+ * // creating instance
+ * var ItemCollection = require(['collections/items/ItemCollection']);
+ * var itemCollection = new ItemCollection;
+ *
+ * @requires modules/authorization
+ * @requires models/items/ItemModel
+ * @requires models/balance/BalanceControl
+ */
+
 define([
     'backbone',
     'backbonefire',
@@ -9,12 +23,19 @@ define([
 
     var ItemsCollection;
 
+    /**
+    * @class ItemsCollection
+    */
     ItemsCollection = Backbone.Firebase.Collection.extend({
         model: ItemModel,
 
         comparator: function (m) {
             return -m.get('date');
         },
+
+        /**
+        * @constructs ItemsCollection
+        */
         initialize: function () {
             this.setUrl();
             this.listenTo(this, 'all', function (eventName) {
@@ -29,6 +50,7 @@ define([
          * set data for Balance model
          * get each record of item and sum it
          * after set property of count in balance model
+         * @method
          */
         setBalance: function () {
             var sum = 0;
@@ -45,6 +67,19 @@ define([
                 ref = AuthModule.rootRef;
             this.url = ref.child('items').child(uid);
         },
+
+
+        /**
+        * Return data for building charts
+        *
+        * @param {Object} options - Options for data
+        * @param {Date} options.dateStart - Start date for building chart
+        * @param {Date} options.dateEnd - End date for building chart
+        * @param {String} options.itemType - Type of operation (all, income, costs)
+        *
+        * @method
+        * @returns {Array} - Data for chart
+        */
         getDataForChart: function ( options ) {
 
             var dateStart = options.dateStart,

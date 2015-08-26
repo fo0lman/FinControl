@@ -25,7 +25,7 @@ define([
             this.listenTo(this, 'update', this.setBalance);
         },
 
-        /**
+        /*
          * set data for Balance model
          * get each record of item and sum it
          * after set property of count in balance model
