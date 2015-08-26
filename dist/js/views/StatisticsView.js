@@ -3,29 +3,37 @@ define([
     'handlebars',
     'templates',
 
-    'views/StatisticView'
-], function (Backbone, Handlebars, JST, StatisticView) {
+    'views/ItemView',
+    'modules/spinnerControl'
+], function (Backbone, Handlebars, JST, ItemView, spinner) {
     "use strict";
 
     var StatisticsView;
     StatisticsView = Backbone.View.extend({
         className: "row",
         initialize: function () {
-            this.listenTo(this.collection, 'add', this.renderStatistic);
+            this.spinnerStart();
+            this.listenTo(this.collection, 'add', this.renderItem);
             this.listenTo(this.collection, 'sync update', this.render);
+            this.listenTo(this.collection, 'sync', this.spinnerStop);
         },
-        renderStatistic: function (statistic) {
-            var statisticView = new StatisticView({
-                model: statistic
+        renderItem: function (item) {
+            var itemView = new ItemView({
+                model: item
             });
-            this.$('#filters-container').append(statisticView.render().$el);
+            this.$('#items-container').append(itemView.render().$el);
         },
         render: function() {
-            this.template = Handlebars.compile(JST.Statistics());
+            this.template = Handlebars.compile(JST.Items());
             this.$el.html(this.template());
-            var lastTenModelsArr = this.collection.last(10);
-            lastTenModelsArr.forEach(this.renderStatistic, this);
+            this.collection.each(this.renderItem, this);
             return this;
+        },
+        spinnerStart: function () {
+            spinner.show(true);
+        },
+        spinnerStop: function () {
+            spinner.show(false);
         }
     });
 

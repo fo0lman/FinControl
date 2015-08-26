@@ -1,44 +1,27 @@
 define([
     'pages/AbstractPage',
-
     'views/pages/StatisticsPage',
-    'views/BalanceView',
     'views/StatisticsView',
-    'views/FiltersView',
+    'collections/items/ItemsControl'
 
-    'collections/statictics/StatisticsControl',
-    'collections/filters/FiltersControl'
-
-], function (AbstractPage, StatisticsPageView, BalanceView, StatisticsView, FiltersView, StatisticsControl, FiltersControl) {
+], function (AbstractPage, StatisticsPageView, StatisticsView, ItemsControl) {
     "use strict";
 
-        var StatisticsPage;
-        StatisticsPage = AbstractPage.extend({
-            title: 'Statistics',
-            initialize: function (options) {
-                AbstractPage.prototype.initialize.call(this, arguments);
-                var statisticsPageView = new StatisticsPageView({
-                    title: this.title
-                });
-                this.components.push(statisticsPageView);
-
-            var balanceView = new BalanceView();
-            this.components.push(balanceView);
-
-
-            var filterCollection = new FiltersControl.getFiltersCollection();
-            var filtersView = new FiltersView({
-                collection: filterCollection
+    var StatisticsPage;
+    StatisticsPage = AbstractPage.extend({
+        title: 'Statistics',
+        initialize: function (options) {
+            AbstractPage.prototype.initialize.call(this, arguments);
+            var statisticsPageView = new StatisticsPageView({
+                title: this.title
             });
-            this.components.push(filtersView);
-            
+            this.components.push(statisticsPageView);
 
-            var statisticCollection = StatisticsControl.getStatisticsCollection();
-            var statisticsView = new StatisticsView({
-                collection: statisticCollection
+            var itemCollection = ItemsControl.getItemsCollection();
+            var itemsView = new StatisticsView({
+                collection: itemCollection
             });
-            this.components.push(statisticsView);
-
+            this.components.push(itemsView);
         }
     });
     return StatisticsPage;
