@@ -130,3 +130,15 @@ footer {
   top: 50%;
   left: 50%;
 }
+
+.setting-title a {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+
+.setting-title a:hover,
+.setting-title a:focus {
+  text-decoration: none;
+}

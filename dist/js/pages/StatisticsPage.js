@@ -18,7 +18,6 @@ define([
             });
             this.components.push(statisticsPageView);
 
-
             var filterView = new StatisticsFilterView();
             this.components.push(filterView);
 
