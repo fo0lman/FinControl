@@ -8,8 +8,8 @@ define([
 
     var RegistrationPageView;
     RegistrationPageView = AbstractPage.extend({
+        className: 'row',
         title: 'Registration',
-
         events: {
             'submit':  'regUser'
         },

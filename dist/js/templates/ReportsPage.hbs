@@ -1,34 +1,33 @@
-<div class="row">
-  <div class="col-md-12">
+<div class="col-md-12">
     <form class="form-inline">
-      <h3>{{title}}</h3>
-      <hr>
-      <div class="row">
-        <div class="form-group">
-          <label for="inputEmail3">Chart type:</label>
-            <label class="radio-inline">
-              <input class="chartType" type="radio" name="optionsRadios" id="optionsRadios1" value="pie" checked> pie
-            </label>
-            <label class="radio-inline">
-              <input class="chartType" type="radio" name="optionsRadios" id="optionsRadios2" value="line"> line
-            </label>
+        <h3>{{title}}</h3>
+        <hr>
+        <div class="row">
+            <div class="form-group">
+                <label for="inputEmail3">Chart type:</label>
+                <label class="radio-inline">
+                    <input class="chartType" type="radio" name="optionsRadios" id="optionsRadios1" value="pie" checked>
+                    pie
+                </label>
+                <label class="radio-inline">
+                    <input class="chartType" type="radio" name="optionsRadios" id="optionsRadios2" value="line"> line
+                </label>
+            </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group">
-          <label for="inputDateBegin">from</label>
-            <input type="date" class="form-control" id="inputDateBegin">
-          <label for="inputDateEnd">to</label>
-            <input type="date" class="form-control" id="inputDateEnd">
-            <select class="form-control itemType">
-              <option selected>all</option>
-              <option>income</option>
-              <option>costs</option>
-            </select>
-            <button type="submit" class="btn btn-primary">Filter</button>
+        <div class="row">
+            <div class="form-group">
+                <label for="inputDateBegin">from</label>
+                <input type="date" class="form-control" id="inputDateBegin">
+                <label for="inputDateEnd">to</label>
+                <input type="date" class="form-control" id="inputDateEnd">
+                <select class="form-control itemType">
+                    <option selected>all</option>
+                    <option>income</option>
+                    <option>costs</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
         </div>
-      </div>
-      <hr>
+        <hr>
     </form>
-  </div>
 </div>

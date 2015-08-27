@@ -8,6 +8,7 @@ define([
 
     var PasswordPageView;
     PasswordPageView = AbstractPage.extend({
+        className: 'row',
         title: 'Reset Password',
 
         events: {

@@ -7,6 +7,7 @@ define([
 
     var NotFoundPageView;
     NotFoundPageView = AbstractPage.extend({
+        className: 'row not-found-page-content text-center',
         title: 'Oops, Page not found!',
         initialize: function() {
             this.template = Handlebars.compile(JST.NotFoundPage({title: this.title}))

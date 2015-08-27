@@ -98,7 +98,8 @@ footer {
   display: block;
 }
 
-.fa-trash-o {
+.fa-trash-o,
+.fa-pencil-square-o {
   cursor: pointer;
 }
 

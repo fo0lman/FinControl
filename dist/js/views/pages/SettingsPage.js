@@ -7,6 +7,7 @@ define([
 
     var SettingsPageView;
     SettingsPageView = AbstractPage.extend({
+        className: 'row',
         title: 'Settings Page',
         initialize: function() {
             this.template = Handlebars.compile(JST.SettingsPage({title: this.title}))

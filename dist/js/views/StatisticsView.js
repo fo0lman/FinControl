@@ -3,9 +3,9 @@ define([
     'handlebars',
     'templates',
 
-    'views/ItemView',
+    'views/StatisticsItemView',
     'modules/spinnerControl'
-], function (Backbone, Handlebars, JST, ItemView, spinner) {
+], function (Backbone, Handlebars, JST, StatisticsItemView, spinner) {
     "use strict";
 
     var StatisticsView;
@@ -18,7 +18,7 @@ define([
             this.listenTo(this.collection, 'sync', this.spinnerStop);
         },
         renderItem: function (item) {
-            var itemView = new ItemView({
+            var itemView = new StatisticsItemView({
                 model: item
             });
             this.$('#items-container').append(itemView.render().$el);

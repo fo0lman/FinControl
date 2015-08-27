@@ -9,6 +9,7 @@ define([
 
     var ReportsPageView;
     ReportsPageView = AbstractPage.extend({
+        className: 'row',
         title: 'Reports Page',
         events: {
             'submit': 'filter'

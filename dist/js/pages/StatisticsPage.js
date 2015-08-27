@@ -1,10 +1,11 @@
 define([
     'pages/AbstractPage',
     'views/pages/StatisticsPage',
+    'views/StatisticsFilterView',
     'views/StatisticsView',
     'collections/items/ItemsControl'
 
-], function (AbstractPage, StatisticsPageView, StatisticsView, ItemsControl) {
+], function (AbstractPage, StatisticsPageView, StatisticsFilterView, StatisticsView, ItemsControl) {
     "use strict";
 
     var StatisticsPage;
@@ -16,6 +17,10 @@ define([
                 title: this.title
             });
             this.components.push(statisticsPageView);
+
+
+            var filterView = new StatisticsFilterView();
+            this.components.push(filterView);
 
             var itemCollection = ItemsControl.getItemsCollection();
             var itemsView = new StatisticsView({

@@ -8,6 +8,7 @@ define([
 
     var LoginPageView;
     LoginPageView = AbstractPage.extend({
+        className: 'row',
         title: 'Loggining',
 
         events: {
