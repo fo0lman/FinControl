@@ -49,7 +49,7 @@ this["JST"]["Buttons"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
 },"useData":true});
 
 this["JST"]["Chart"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"col-md-8 col-md-offset-2\">\r\n    <div id=\"chart\"></div>\r\n</div>";
+    return "<div class=\"col-md-12\">\r\n    <div id=\"chart\"></div>\r\n</div>";
 },"useData":true});
 
 this["JST"]["DashboardPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {

@@ -18,27 +18,28 @@ define([
     'modules/authorization',
     'models/items/ItemModel',
     'models/balance/BalanceControl'
-], function (Backbone, bbfire, AuthModule, ItemModel, balance) {
+], function(Backbone, bbfire, AuthModule, ItemModel, balance) {
     "use strict";
 
     var ItemsCollection;
 
     /**
-    * @class ItemsCollection
-    */
+     * @class ItemsCollection
+     */
     ItemsCollection = Backbone.Firebase.Collection.extend({
         model: ItemModel,
+        // filtered: new Backbone.Collection,
 
-        comparator: function (m) {
+        comparator: function(m) {
             return -m.get('date');
         },
 
         /**
-        * @constructs ItemsCollection
-        */
-        initialize: function () {
+         * @constructs ItemsCollection
+         */
+        initialize: function() {
             this.setUrl();
-            this.listenTo(this, 'all', function (eventName) {
+            this.listenTo(this, 'all', function(eventName) {
                 console.info('Items collection', eventName)
             });
 
@@ -52,85 +53,229 @@ define([
          * after set property of count in balance model
          * @method
          */
-        setBalance: function () {
+        setBalance: function() {
             var sum = 0;
 
-            this.each(function (model) {
+            this.each(function(model) {
                 sum += parseInt(model.get('sum'), 10);
             })
 
             balance.getBalance().set('count', sum);
         },
 
-        setUrl: function () {
+        setUrl: function() {
             var uid = AuthModule.getUserData().uid,
                 ref = AuthModule.rootRef;
             this.url = ref.child('items').child(uid);
         },
 
-
-        /**
-        * Return data for building charts
-        *
-        * @param {Object} options - Options for data
-        * @param {Date} options.dateStart - Start date for building chart
-        * @param {Date} options.dateEnd - End date for building chart
-        * @param {String} options.itemType - Type of operation (all, income, costs)
-        *
-        * @method
-        * @returns {Array} - Data for chart
-        */
-        getDataForChart: function ( options ) {
+        getDataForChart: function(options) {
 
             var dateStart = options.dateStart,
                 dateEnd = options.dateEnd,
                 itemType = options.itemType,
-                outputData = [];
+                chartType = options.chartType;
 
-            var data = this.chain()
-            // фильтр по периоду
-            .filter(function (model) {
+            var data = [];
+
+            if (chartType === 'pie') {
+                data = this.getDataForPieChart(options);
+            } else if (chartType === 'line') {
+                data = this.getDataForLineChart(options);
+            } else {
+
+            }
+
+            return data;
+        },
+
+        getDataForPieChart: function(opt) {
+
+            var data = [],
+                output = [];
+
+            data = this.getDataByDateRange(opt.dateStart, opt.dateEnd, true)
+                .getDataByItemType(opt.itemType, true)
+                .groupDataByCategory(opt.itemType, true)
+                .filtered;
+
+            data.forEach(function(item, i, arr) {
+                var tempArr = [];
+                tempArr.push(i);
+                tempArr.push(Math.abs(item.reduce(function(memo, value) {
+                    return memo + Number(value.get('sum'));
+                }, 0)));
+
+                output.push(tempArr);
+            });
+
+            this.filtered = null;
+
+            return output;
+        },
+
+        getDataForLineChart: function(opt) {
+            var data = [],
+                output = [];
+
+            data = this.getDataByDateRange(opt.dateStart, opt.dateEnd, true)
+                .groupDataByDate(true)
+                .filtered;
+
+            var dateArr = [];
+            dateArr[0] = 'x';
+
+            var incomeArr = [];
+            incomeArr[0] = 'income';
+
+            var costsArr = [];
+            costsArr[0] = 'costs';
+
+            data.forEach(function(item, i, arr) {
+
+                dateArr.push(i);
+
+                incomeArr.push(item.reduce(function(memo, value) {
+                    var val = Number(value.get('sum'));
+
+                    if (val > 0) {
+                        return memo + val;
+                    } else {
+                        return 0;
+                    }
+                }, 0));
+
+                costsArr.push(item.reduce(function(memo, value) {
+                    var val = Number(value.get('sum'));
+
+                    if (val < 0) {
+                        return memo + val;
+                    } else {
+                        return 0;
+                    }
+                }, 0));
+
+
+            });
+
+            output.push(dateArr, incomeArr, costsArr);
+
+            this.filtered = null;
+
+            return output;
+        },
+
+        getDataByDateRange: function(from, to, chain) {
+
+            var coll = (this.filtered) ? this.filtered : this;
+
+            this.filtered = _(coll.filter(function(model) {
                 var date = model.get('date');
-                return (date >= dateStart && date <= dateEnd);
-            })
-            // фильтр по типу операций (доходы/расходы)
-            .filter(function (model) {
-                if (itemType === 'all') {
+                return (date >= from && date <= to);
+            }));
+
+            if (chain) {
+                return this;
+            } else {
+                var result = this.filtered.value();
+                this.filtered = null;
+                return result;
+            }
+        },
+
+        getDataByItemType: function(type, chain) {
+
+            var coll = (this.filtered) ? this.filtered : this;
+
+            this.filtered = _(coll.filter(function(model) {
+                if (type === 'all') {
                     return true;
                 }
-                if (itemType === 'income') {
+                if (type === 'income') {
                     return model.get('sum') > 0;
                 } else {
                     return model.get('sum') < 0;
                 }
-            })
-            // группировка по категориям доходов/расходов
-            .groupBy(function (model) {
-                if (itemType === 'all') {
+            }));
+
+            if (chain) {
+                return this;
+            } else {
+                var result = this.filtered.value();
+                this.filtered = null;
+                return result;
+            }
+        },
+
+        groupDataByCategory: function(type, chain) {
+
+            var coll = (this.filtered) ? this.filtered : this;
+
+            this.filtered = _(coll.groupBy(function(model) {
+                if (type === 'all') {
                     return (model.get('sum') > 0) ? 'income' : 'costs';
                 } else {
                     return model.get('category');
                 }
-            })
-            // сформируем массив массивов, с суммированием значений по категориям 
-            // или видам операций
-            .forEach(function (item, i, arr) {
-                var tempArr = [];
+            }));
 
-                // запишем категорию доходов/расходов или вид операциий
-                tempArr.push(i);
-                // по каждой категории или виду операций просуммируем значения (преобразовав
-                // из строки в абсолютное число
-                tempArr.push( Math.abs( item.reduce(function (memo, value) {
-                    return memo + Number( value.get('sum') );
-                }, 0) ) );
-                
-                outputData.push(tempArr);
-           });
+            if (chain) {
+                return this;
+            } else {
+                var result = this.filtered.value();
+                this.filtered = null;
+                return result;
+            }
+        },
+        groupDataByDate: function(chain) {
 
-            return outputData;
-       }
-      });
+            var coll = (this.filtered) ? this.filtered : this;
+
+            this.filtered = _(coll.groupBy(function(model) {
+                var date = model.get('date');
+
+                var myDate = new Date(date);
+
+                var yyyy = myDate.getFullYear();
+                var mm = myDate.getMonth() + 1;
+                if (mm < 10) {
+                    mm = '0' + mm;
+                }
+                var dd = myDate.getDate();
+                if (dd < 10) {
+                    dd = '0' + dd;
+                }
+
+                var formatDate = yyyy + '-' + mm + '-' + dd;
+
+                return formatDate;
+            }));
+
+            if (chain) {
+                return this;
+            } else {
+                var result = this.filtered.value();
+                this.filtered = null;
+                return result;
+            }
+        },
+
+
+
+
+        /**
+         * Return data for building charts
+         *
+         * @param {Object} options - Options for data
+         * @param {Date} options.dateStart - Start date for building chart
+         * @param {Date} options.dateEnd - End date for building chart
+         * @param {String} options.itemType - Type of operation (all, income, costs)
+         *
+         * @method
+         * @returns {Array} - Data for chart
+         */
+
+    });
 
     return ItemsCollection;
 });
