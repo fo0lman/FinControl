@@ -24,30 +24,58 @@ define([
             event.preventDefault();
 
             var options = this.getOptionsForChart();
-            var myData = this.collection.getDataForChart( options );
+            var myData = this.collection.getDataForChart(options);
 
             if (options.chartType === 'line') {
-
+                var chart = c3.generate({
+                    data: {
+                        x: 'x',                        
+                        columns: myData
+                    },
+                    axis: {
+                        x: {
+                            type: 'timeseries',
+                            tick: {
+                                format: '%Y-%m-%d',
+                                rotate: 90
+                            }
+                        },
+                        y: {
+                            label: {
+                                text: 'UAH',
+                                position: 'outer-middle'
+                            }
+                        }
+                    },
+                    grid: {
+                        x: {
+                            show: true
+                        },
+                        y: {
+                            show: true
+                        }
+                    }
+                });
             } else {
                 var chart = c3.generate({
                     data: {
-                        columns: myData, 
+                        columns: myData,
                         type: 'pie'
                     }
                 });
             }
         },
-        getOptionsForChart: function () {
+        getOptionsForChart: function() {
             return {
                 chartType: $('.chartType:checked').val(),
-                dateStart: this.toTimestamp( $('#inputDateBegin').val(), 'start' ),
-                dateEnd: this.toTimestamp( $('#inputDateEnd').val(), 'end' ),
+                dateStart: this.toTimestamp($('#inputDateBegin').val(), 'start'),
+                dateEnd: this.toTimestamp($('#inputDateEnd').val(), 'end'),
                 itemType: $('.itemType').val()
             };
         },
-        toTimestamp: function (strDate, strParam) {
+        toTimestamp: function(strDate, strParam) {
 
-            var date = new Date( Date.parse(strDate) );
+            var date = new Date(Date.parse(strDate));
 
             if (strParam === 'start') {
                 date.setHours(0, 0, 0, 0);
