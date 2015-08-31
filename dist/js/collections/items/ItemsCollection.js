@@ -30,8 +30,47 @@ define([
         model: ItemModel,
         // filtered: new Backbone.Collection,
 
-        comparator: function(m) {
+        /*comparator: function(m) {
             return -m.get('date');
+        },*/
+
+        comparator: function(a,b) {
+            if(a.get('date') < b.get('date')) {
+                return 1;   
+            } else if(b.get('date') > a.get('date')){
+                return -1;
+            }
+            return 0;
+        },
+
+        byDate: function() {
+            this.comparator = function(a, b) {
+                if(a.get('date') < b.get('date')) {
+                    return 1;   
+                } else if(b.get('date') > a.get('date')){
+                    return -1;
+                }
+                return 0;
+            };
+            this.sort();
+        },
+        bySum: function(){
+            this.comparator = function(model) {
+                return model.get('sum');
+            }
+            this.sort();
+        },
+        byCategory: function(){
+            this.comparator = function(model) {
+                return model.get('category');
+            }
+            this.sort();
+        },
+        bySource: function(){
+            this.comparator = function(model) {
+                return model.get('source');
+            }
+            this.sort();
         },
 
         /**
