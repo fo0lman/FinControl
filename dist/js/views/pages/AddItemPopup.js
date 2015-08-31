@@ -1,8 +1,9 @@
 define([
     'backbone',
     'handlebars',
-    'templates'
-], function (Backbone, Handlebars, JST) {
+    'templates',
+    'modules/datePicker'
+], function (Backbone, Handlebars, JST, datepicker) {
     "use strict";
 
     var AddItemPopupView;
@@ -14,7 +15,8 @@ define([
         events: {
             'click .js-close': 'close',
             'click .js-add-item': 'addItem',
-            'submit .add-item-form': 'addItem'
+            'submit .add-item-form': 'addItem',
+            'mouseover .dateInput': 'createDatepicker'
         },
 
         initialize: function() {
@@ -29,7 +31,7 @@ define([
         addItem: function (event) {
             event.preventDefault();
             this.trigger('addform:submitted', {
-                date: parseInt(this.$('#inputDate').val(), 10),
+                date: this.toTimestamp( this.$('#inputDate').val() ),
                 sum: this.$('#inputSum').val(),
                 category: this.$('#inputCategory').val(),
                 source: this.$('#inputSource').val()
@@ -38,6 +40,23 @@ define([
         },
         close: function() {
             this.remove();
+        },
+        createDatepicker: function ( e ) {
+            $(e.currentTarget).datepicker();
+        },
+        toTimestamp: function(strDate, strParam) {
+
+            strDate = strDate.split('/');
+
+            var date = new Date(strDate[2], strDate[1] - 1, strDate[0]);
+
+            if (strParam === 'start') {
+                date.setHours(0, 0, 0, 0);
+            } else {
+                date.setHours(23, 59, 59, 999);
+            }
+
+            return Date.parse(date);
         }
     });
 

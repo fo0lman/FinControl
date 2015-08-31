@@ -3,8 +3,9 @@ define([
     'handlebars',
     'templates',
     'c3',
-    'collections/items/ItemsControl'
-], function(AbstractPage, Handlebars, JST, c3, ItemsControl) {
+    'collections/items/ItemsControl',
+    'modules/datePicker'
+], function (AbstractPage, Handlebars, JST, c3, ItemsControl, datepicker) {
     "use strict";
 
     var ReportsPageView;
@@ -12,7 +13,8 @@ define([
         className: 'row',
         title: 'Reports Page',
         events: {
-            'submit': 'filter'
+            'submit': 'filter',
+            'mouseover .dateInput': 'createDatepicker'
         },
         initialize: function() {
             this.template = Handlebars.compile(JST.ReportsPage({
@@ -75,7 +77,9 @@ define([
         },
         toTimestamp: function(strDate, strParam) {
 
-            var date = new Date(Date.parse(strDate));
+            strDate = strDate.split('/');
+
+            var date = new Date(strDate[2], strDate[1] - 1, strDate[0]);
 
             if (strParam === 'start') {
                 date.setHours(0, 0, 0, 0);
@@ -84,6 +88,9 @@ define([
             }
 
             return Date.parse(date);
+        },
+        createDatepicker: function ( e ) {
+            $(e.currentTarget).datepicker();
         }
     });
 
