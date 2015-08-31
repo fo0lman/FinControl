@@ -48,6 +48,24 @@ this["JST"]["Buttons"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"
     return "<form class=\"form-inline\">\r\n    <div class=\"col-md-1\">\r\n        <div id=\"add-button-container\">\r\n\r\n        </div>\r\n    </div>\r\n    <div class=\"col-md-11\">\r\n        <div class=\"form-group\">\r\n            <label>Favorite:</label>\r\n            <div class=\"btn-group\" id=\"buttons-container\">\r\n\r\n            </div>\r\n        </div>\r\n    </div>\r\n</form>";
 },"useData":true});
 
+this["JST"]["Categories"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<tr>\r\n	<td>"
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</td>\r\n	<td>"
+    + alias3(((helper = (helper = helpers.summ || (depth0 != null ? depth0.summ : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"summ","hash":{},"data":data}) : helper)))
+    + "</td>\r\n	<td>"
+    + alias3(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
+    + "</td>\r\n	<td>"
+    + alias3(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
+    + "</td>\r\n	<td><i class=\"glyphicon glyphicon-trash\"></i></td>\r\n</tr>";
+},"useData":true});
+
+this["JST"]["Category"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"container\">\r\n  <h4 class=\"sub-header\">User Buttons</h4>\r\n  <div class=\"panel panel-default\">\r\n      <table class=\"table table-hover table-bordered\">\r\n          <thead>\r\n            <tr class=\"active\">\r\n                <th>Name</th>\r\n                <th>Sum</th>\r\n                <th>Category</th>\r\n                <th>Source</th>\r\n                <th>Actions</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody id=\"items-container\">\r\n\r\n            \r\n          </tbody>\r\n      </table>\r\n  </div>\r\n\r\n\r\n  <!-- table categories -->\r\n  <h4 class=\"sub-header\">Categories</h4>\r\n   <div class=\"panel panel-default\">\r\n      <table class=\"table table-hover table-bordered\">\r\n          <thead>\r\n            <tr class=\"active\">\r\n                <th>Category</th>\r\n                <th>Action</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody id=\"items-container\">\r\n\r\n\r\n          </tbody>\r\n      </table>\r\n  </div>\r\n\r\n\r\n  <!-- table Sources -->\r\n  <h4 class=\"sub-header\">Sources</h4>\r\n  <div class=\"panel panel-default\">\r\n      <table class=\"table table-hover table-bordered\">\r\n          <thead>\r\n            <tr class=\"active\">\r\n                <th>Source</th>\r\n                <th>Action</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody id=\"items-container\">\r\n\r\n          </tbody>\r\n      </table>\r\n  </div>\r\n</div>\r\n";
+},"useData":true});
+
 this["JST"]["Chart"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"col-md-12\">\r\n    <div id=\"chart\"></div>\r\n</div>";
 },"useData":true});
@@ -188,6 +206,22 @@ this["JST"]["UserMenuLogin"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta
 
 this["JST"]["UserMenuLogout"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<ul class=\"nav navbar-nav user-top-menu pull-right\">\r\n    <li><a href=\"#registration\">SignUp</a></li>\r\n    <li><a href=\"#login\">Login</a></li>\r\n</ul>";
+},"useData":true});
+
+this["JST"]["favoriteCategory"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<tr>\r\n	<td>"
+    + this.escapeExpression(((helper = (helper = helpers.category || (depth0 != null ? depth0.category : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"category","hash":{},"data":data}) : helper)))
+    + "</td>\r\n	<td><i class=\"glyphicon glyphicon-trash\"></i></td>\r\n</tr>";
+},"useData":true});
+
+this["JST"]["source"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<tr>\r\n	<td>"
+    + this.escapeExpression(((helper = (helper = helpers.source || (depth0 != null ? depth0.source : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"source","hash":{},"data":data}) : helper)))
+    + "</td>\r\n	<td><i class=\"glyphicon glyphicon-trash\"></i></td>\r\n</tr>";
 },"useData":true});
 
 return this["JST"];
