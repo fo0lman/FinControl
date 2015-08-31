@@ -3,7 +3,7 @@
 requirejs.config({
     paths: {
         jquery: '../../node_modules/jquery/dist/jquery',
-        jqueryui: '../../node_modules/jquery-ui/jquery-ui.min',
+        jqueryui: '../../node_modules/jquery-ui/jquery-ui',
         underscore: '../../node_modules/underscore/underscore',
         backbone: '../../node_modules/backbone/backbone',
         firebase: '../../bower_components/firebase/firebase',
