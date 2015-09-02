@@ -1,7 +1,9 @@
 define([
     'pages/AbstractPage',
-    'views/pages/SettingsPage'
-], function (AbstractPage, SettingsPageView) {
+    'views/ButtonsSettingsView',
+    'collections/buttons/ButtonsControl',
+    'views/AddButtonButtonSettingsView'
+], function (AbstractPage, ButtonsSettingsView, ButtonsControl, AddButtonButtonSettingsView) {
     "use strict";
 
     var SettingsPage;
@@ -9,8 +11,15 @@ define([
         title: 'Settings',
         initialize: function (options) {
             AbstractPage.prototype.initialize.call(this, arguments);
-            var settingsPageView = new SettingsPageView({
-                title: this.title
+
+            // add button
+            var addButtonButtonSettingsView = new AddButtonButtonSettingsView();
+            this.components.push(addButtonButtonSettingsView);
+
+            // table
+            var buttonsCollection = ButtonsControl.getButtonsCollection();
+            var settingsPageView = new ButtonsSettingsView({
+                collection: buttonsCollection
             });
             this.components.push(settingsPageView);
         }

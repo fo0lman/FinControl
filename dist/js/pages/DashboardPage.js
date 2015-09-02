@@ -36,15 +36,6 @@ define([
                 collection: itemCollection
             });
             this.components.push(itemsView);
-
-            window.addFavoriteButton = function (buttonName) {
-                buttonCollection.create({
-                    "category" : "Rent",
-                    "name" : buttonName,
-                    "source" : "VISA",
-                    "sum" : "-2000"
-                })
-            };
         }
     });
     return DashboardPage;
