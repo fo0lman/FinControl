@@ -2,27 +2,27 @@ define([
     'backbone',
     'backbonefire',
     'modules/authorization',
-    'models/CategoryModel'
-], function (Backbone, bbfire, AuthModule, CategoryModel) {
+    'models/sources/SourceModel'
+], function (Backbone, bbfire, AuthModule, SourceModel) {
     "use strict";
 
-    var CategoryCollection;
+    var SourcesCollection;
 
-    CategoryCollection = Backbone.Firebase.Collection.extend({
-        model: CategoryModel,
+    SourcesCollection = Backbone.Firebase.Collection.extend({
+        model: SourceModel,
 
         initialize: function () {
             this.setUrl();
             this.listenTo(this, 'all', function (eventName) {
-                console.info('Category Collection', eventName)
+                console.info('Sources Collection', eventName)
             });
         },
         setUrl: function () {
             var uid = AuthModule.getUserData().uid,
                 ref = AuthModule.rootRef;
-            this.url = ref.child('category').child(uid);
+            this.url = ref.child('sources').child(uid);
         }
     });
 
-    return CategoryCollection;
+    return SourcesCollection;
 });

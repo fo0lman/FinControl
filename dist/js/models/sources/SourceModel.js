@@ -3,14 +3,14 @@ define([
 ], function (Backbone) {
     "use strict";
 
-    var CategoryModel;
-    CategoryModel = Backbone.Model.extend({
+    var SourceModel;
+    SourceModel = Backbone.Model.extend({
         initialize: function () {
             this.listenTo(this, 'all', function (eventName) {
-                console.log('Category Model', eventName)
+                console.log('Source Model', eventName)
             });
         }
     });
 
-    return CategoryModel;
+    return SourceModel;
 });

@@ -5,17 +5,26 @@
 <div class="col-md-12">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs nav-justified" role="tablist">
-        <li role="presentation" class="active"><a href="#user-buttons" aria-controls="user-buttons" role="tab"
-                                                  data-toggle="tab">User buttons</a></li>
-        <li role="presentation"><a href="#category" aria-controls="category" role="tab"
-                                   data-toggle="tab">Category</a>
+        <li role="presentation" class="active">
+            <a href="#user-buttons" aria-controls="user-buttons" role="tab" data-toggle="tab">
+            User buttons
+            </a>
         </li>
-        <li role="presentation"><a href="#sources" aria-controls="sources" role="tab" data-toggle="tab">Sources</a>
+        <li role="presentation">
+            <a href="#category" aria-controls="category" role="tab" data-toggle="tab">
+            Category
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#sources" aria-controls="sources" role="tab" data-toggle="tab">
+            Sources
+            </a>
         </li>
     </ul>
 
     <!-- Tab panes -->
     <div class="tab-content">
+        <!-- User buttons -->
         <div role="tabpanel" class="tab-pane active" id="user-buttons">
 
             <div class="row">
@@ -30,7 +39,7 @@
                             <th>Actions</th>
                         </tr>
                         </thead>
-                        <tbody id="items-container">
+                        <tbody class="items-container">
                         <tr>
                             <td>test1</td>
                             <td>+100</td>
@@ -56,74 +65,43 @@
                     </table>
                 </div>
                 <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add</button>
-            </div>
+            </div>    
+        </div><!--/ User buttons -->
 
-        </div>
+        <!-- Categories -->
         <div role="tabpanel" class="tab-pane" id="category">
-
             <div class="row">
                 <div class="panel panel-default">
                     <table class="table table-hover table-bordered">
                         <thead>
-                        <tr class="active">
-                            <th>Name</th>
-                            <th>Actions</th>
-                        </tr>
+                            <tr class="active">
+                                <th>Name</th>
+                                <th>Actions</th>
+                            </tr>
                         </thead>
-                        <tbody id="items-container">
-                        <tr>
-                            <td>INTERNET</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        <tr>
-                            <td>FOOD</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        <tr>
-                            <td>RENT</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        </tbody>
+                        <tbody class="items-container"></tbody>
                     </table>
                 </div>
                 <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add</button>
-            </div>
+            </div>    
+        </div><!--/ Categories -->
 
-        </div>
+        <!-- Sources -->
         <div role="tabpanel" class="tab-pane" id="sources">
-
             <div class="row">
                 <div class="panel panel-default">
                     <table class="table table-hover table-bordered">
                         <thead>
-                        <tr class="active">
-                            <th>Name</th>
-                            <th>Actions</th>
-                        </tr>
+                            <tr class="active">
+                                <th>Name</th>
+                                <th>Actions</th>
+                            </tr>
                         </thead>
-                        <tbody id="items-container">
-                        <tr>
-                            <td>VISA</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        <tr>
-                            <td>MASTERCARD</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        <tr>
-                            <td>PAYPAL</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        <tr>
-                            <td>WEBMONEY</td>
-                            <td><i class="fa fa-trash-o"></i></td>
-                        </tr>
-                        </tbody>
+                        <tbody class="items-container"></tbody>
                     </table>
                 </div>
                 <button type="button" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Add</button>
             </div>
-
-        </div>
-    </div>
+        </div><!--/ Sources -->
+    </div><!--/ Tab panes -->
 </div>

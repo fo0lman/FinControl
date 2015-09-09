@@ -12,7 +12,7 @@
         ".read": "auth != null && auth.uid == $uid",
         ".write": "auth != null && auth.uid == $uid",
         "$cat_id": {
-          ".validate": "newData.hasChildren(['title']) && newData.child('title').isString()"
+          ".validate": "newData.hasChildren(['title']) && newData.child('title').isString() && newData.child('title').val().length > 0"
         }
       }
     },

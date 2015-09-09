@@ -9,7 +9,7 @@ define([
     CategoryView = Backbone.View.extend({
         tagName: 'tr',
         events: {
-            'click .glyphicon-trash': 'deleteCategory'
+            'click .fa-trash-o': 'deleteCategory'
         },
         initialize: function () {
             this.listenTo(this.model, 'remove', this.remove);
@@ -22,6 +22,7 @@ define([
         deleteCategory: function (event) {
             event.preventDefault();
             this.model.destroy();
+            this.remove();
         }
     });
 
