@@ -14,7 +14,7 @@ define([
     var SettingsPageView;
     SettingsPageView = AbstractPage.extend({
         className: 'row',
-        title: 'Settings Page',
+        title: 'Settings',
         events: {
             'click a[href="#category"]': 'createCategoriesView',
             'click a[href="#sources"]': 'createSourcesView',

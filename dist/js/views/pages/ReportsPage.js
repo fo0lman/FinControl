@@ -11,7 +11,7 @@ define([
     var ReportsPageView;
     ReportsPageView = AbstractPage.extend({
         className: 'row',
-        title: 'Reports Page',
+        title: 'Reports',
         events: {
             'submit': 'filter',
             'mouseover .dateInput': 'createDatepicker'

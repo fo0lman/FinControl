@@ -6,7 +6,7 @@ define([
     var AbstractPage;
     AbstractPage = Backbone.View.extend({
         changeTitle: function (title) {
-            document.querySelector('title').firstChild.nodeValue = title;
+            document.querySelector('title').firstChild.nodeValue = 'FinControl-' + title;
         },
         initialize: function () {
             this.components = [];
@@ -14,8 +14,9 @@ define([
             this.listenTo(this, 'removePage', this.removePage);
             this.changeTitle(this.title);
             $('.js-page').append(this.el);
+            // singleton
+            this.usermenu = new UserMenuView();
 
-            this.usermenu = (new UserMenuView()).render();
 
         },
         render: function () {
@@ -37,7 +38,7 @@ define([
                 var component = components[i];
                 component.remove();
             }
-            this.usermenu.remove();
+            // this.usermenu.remove();
             this.remove();
         }
     });

@@ -2,8 +2,10 @@ define([
     'backbone',
     'handlebars',
     'templates',
-    'modules/datePicker'
-], function (Backbone, Handlebars, JST, datepicker) {
+    'modules/datePicker',
+    'collections/categories/CategoriesControl',
+    'collections/sources/SourcesControl'
+], function (Backbone, Handlebars, JST, datepicker, CategoriesControl, SourcesControl) {
     "use strict";
 
     var AddItemPopupView;
@@ -18,14 +20,27 @@ define([
             'submit .add-item-form': 'addItem',
             'mouseover .dateInput': 'createDatepicker'
         },
+        
 
         initialize: function() {
-            this.template = Handlebars.compile(JST.AddItemPopup());
-            $('body').append(this.render().el);
+            this.categories = CategoriesControl.getCategoriesCollection();
+            this.sources = SourcesControl.getSourcesCollection();
+
+            if (this.categories.length && this.sources.length) {
+                this.render();
+            } else {
+                this.listenTo(this.categories, 'sync', this.render);
+                this.listenTo(this.sources, 'sync', this.render);
+            }                     
         },
 
         render: function() {
+            this.template = Handlebars.compile(JST.AddItemPopup({
+                categories: this.categories.toJSON(),
+                sources: this.sources.toJSON()
+            }));          
             this.$el.html(this.template());
+            $('body').append(this.el);
             return this;
         },
         addItem: function (event) {

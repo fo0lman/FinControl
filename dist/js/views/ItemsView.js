@@ -24,7 +24,7 @@ define([
             var itemView = new ItemView({
                 model: item
             });
-            this.$('#items-container').append(itemView.render().$el);
+            this.$('.items-container').append(itemView.render().$el);
         },
         render: function() {
             this.template = Handlebars.compile(JST.Items());

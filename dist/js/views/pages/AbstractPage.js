@@ -7,7 +7,7 @@ define([
     AbstractPageView = Backbone.View.extend({
         className: "row abstract-page",
         changeTitle: function (title) {
-            document.querySelector('title').firstChild.nodeValue = title;
+            document.querySelector('title').firstChild.nodeValue = 'FinControl - ' + title;
         },
         initialize: function () {
             this.listenTo(this, 'removePage', this.removePage);

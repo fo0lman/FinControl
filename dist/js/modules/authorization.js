@@ -39,6 +39,7 @@ define([
                 });
             } else {
                 console.log("Authenticated successfully with payload:", authData);
+                Backbone.trigger('login');
                 router.navigate('dashboard', true);
             }
         }, {
@@ -107,6 +108,7 @@ define([
                 });
             } else {
                 console.log("Authenticated successfully with payload:", authData);
+                Backbone.trigger('login');
                 router.navigate('dashboard', true);
             } }, {
             remember: 'default', //sessionOnly
