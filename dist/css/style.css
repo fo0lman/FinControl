@@ -39,14 +39,13 @@ footer {
   display: none;
 }
 
-.login-links {
+/*.login-links {
   margin-top: 20px;
-}
-
-.social-login {
+}*/
+/*.social-login {
   margin-top: 20px;
-}
 
+}*/
 .social-login a {
   font-size: 32px;
   color: #31619e;
@@ -70,10 +69,9 @@ footer {
   padding: 5px;
 }
 
-.glyphicon {
+/*.glyphicon {
   font-size: 24px;
-}
-
+}*/
 .glyphicon-alert {
   color: #f00;
 }
@@ -141,4 +139,8 @@ footer {
 .setting-title a:hover,
 .setting-title a:focus {
   text-decoration: none;
+}
+
+#login-form .input-group:first-child {
+  padding-bottom: 25px;
 }
